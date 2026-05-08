@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Frenchy Tiny Houses — Инвестиционный меморандум</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @page { size: A4; margin: 15mm 15mm 18mm 15mm; }
+
+  html, body {
+    font-family: "Cormorant Garamond", "Garamond", Georgia, serif;
+    color: #1a1a1a;
+    background: #f4f1ec;
+    line-height: 1.55;
+    font-size: 11.5pt;
+  }
+  body { max-width: 210mm; margin: 0 auto; }
+
+  :root {
+    --gold: #b8924a;
+    --gold-light: #d4b06a;
+    --dark: #1a1a1a;
+    --ink: #2b2b2b;
+    --paper: #ffffff;
+    --soft: #f4f1ec;
+    --line: #d8cfbf;
+    --leaf: #4a6b3a;
+    --leaf-light: #6d8c5a;
+  }
+
+  .page {
+    background: var(--paper);
+    padding: 18mm 16mm;
+    margin-bottom: 8mm;
+    page-break-after: always;
+    min-height: 267mm;
+    position: relative;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ COVER ============ */
+  .cover {
+    padding: 14mm 14mm 16mm 14mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cover-top {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 5mm;
+    margin-bottom: 6mm;
+  }
+  .cover-top .brand {
+    font-family: "DM Mono", monospace;
+    letter-spacing: 0.5em;
+    font-size: 10pt;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .cover-image-wrap {
+    width: 100%;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cover-image-full {
+    width: 100%;
+    max-width: 150mm;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+  .cover-title {
+    font-family: "Cormorant Garamond", "Garamond", Georgia, serif;
+    font-size: 28pt;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--dark);
+    text-align: center;
+    margin: 0 0 4mm 0;
+    line-height: 1;
+  }
+  .cover-title strong {
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .cover-bottom {
+    width: 100%;
+    text-align: center;
+    border-top: 4px solid var(--gold);
+    padding-top: 7mm;
+    margin-top: 6mm;
+  }
+  .cover-bottom .subtitle {
+    font-family: "DM Mono", monospace;
+    font-size: 10pt;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 3mm;
+  }
+  .cover-bottom .horizon {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18pt;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 4mm;
+  }
+  .cover-bottom .meta {
+    font-family: "DM Mono", monospace;
+    font-size: 8pt;
+    letter-spacing: 0.25em;
+    color: #888;
+    text-transform: uppercase;
+  }
+
+  /* ============ SECTION HEADERS ============ */
+  .section-header {
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 4mm;
+    margin-bottom: 7mm;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .section-number {
+    font-family: "DM Mono", monospace;
+    font-size: 9pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+  }
+  .section-header h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24pt;
+    font-weight: 400;
+    color: var(--dark);
+    flex: 1;
+  }
+
+  h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--gold);
+    margin: 5mm 0 2.5mm 0;
+  }
+  p { margin-bottom: 2.5mm; text-align: justify; }
+
+  .lead {
+    font-size: 12.5pt;
+    font-style: italic;
+    color: var(--ink);
+    border-left: 3px solid var(--gold);
+    padding-left: 6mm;
+    margin: 4mm 0 7mm 0;
+  }
+
+  ul { margin: 2.5mm 0 4mm 6mm; }
+  ul li {
+    margin-bottom: 1.5mm;
+    padding-left: 4mm;
+    position: relative;
+    list-style: none;
+  }
+  ul li::before {
+    content: "◆";
+    position: absolute;
+    left: -4mm;
+    color: var(--gold);
+    font-size: 7pt;
+    top: 4px;
+  }
+
+  strong { color: var(--dark); font-weight: 600; }
+  em { color: var(--gold); font-style: italic; }
+
+  .note {
+    margin-top: 4mm;
+    padding: 3.5mm 5mm;
+    background: var(--soft);
+    border-left: 3px solid var(--gold);
+    font-size: 10pt;
+    font-style: italic;
+  }
+
+  /* ============ KPI ============ */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 5mm 0 7mm 0;
+  }
+  .kpi {
+    border: 1px solid var(--line);
+    background: #fcfaf6;
+    padding: 5mm 4mm;
+    text-align: center;
+  }
+  .kpi .label {
+    font-family: "DM Mono", monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 2mm;
+  }
+  .kpi .value {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22pt;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .kpi .unit {
+    font-size: 11pt;
+    color: var(--ink);
+    margin-top: 1.5mm;
+    font-style: italic;
+  }
+
+  /* ============ TABLES ============ */
+  table.tech, table.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0;
+    font-size: 10.5pt;
+  }
+  table.tech tr, table.data tr { border-bottom: 1px solid var(--line); }
+  table.tech tr:first-child, table.data tr:first-child { border-top: 2px solid var(--gold); }
+  table.tech tr:last-child, table.data tr:last-child { border-bottom: 2px solid var(--gold); }
+  table.tech th, table.tech td,
+  table.data th, table.data td {
+    padding: 2.8mm 4mm;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.tech th, table.data th {
+    font-family: "DM Mono", monospace;
+    font-size: 8.5pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    width: 45%;
+    font-weight: 500;
+  }
+  table.tech td, table.data td {
+    font-weight: 600;
+    color: var(--dark);
+  }
+  table.tech tr.eco-row {
+    background: #f5f8f0;
+  }
+  table.tech tr.eco-row th {
+    color: var(--leaf);
+  }
+  table.data td.right { text-align: right; font-family: "DM Mono", monospace; }
+
+  /* ============ ECO SECTION ============ */
+  .eco-block {
+    background: linear-gradient(135deg, #f5f8f0 0%, #fafcf6 100%);
+    border: 1px solid #d4dec5;
+    border-left: 4px solid var(--leaf);
+    padding: 6mm 7mm 5mm 7mm;
+    margin: 5mm 0;
+  }
+  .eco-block .eco-tag {
+    font-family: "DM Mono", monospace;
+    font-size: 8pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--leaf);
+    margin-bottom: 2mm;
+  }
+  .eco-block h3 {
+    color: var(--leaf);
+    margin-top: 0;
+    margin-bottom: 3mm;
+    font-size: 14pt;
+  }
+  .eco-block p { font-size: 10.5pt; }
+
+  .eco-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 4mm;
+  }
+  .eco-card {
+    background: var(--paper);
+    border: 1px solid #d4dec5;
+    padding: 4.5mm 5mm;
+    display: flex;
+    gap: 4mm;
+    align-items: flex-start;
+  }
+  .eco-card .eco-icon {
+    flex-shrink: 0;
+    width: 11mm;
+    height: 11mm;
+    border-radius: 50%;
+    background: #eef3e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--leaf);
+  }
+  .eco-card .eco-icon svg { width: 6.5mm; height: 6.5mm; }
+  .eco-card .eco-content { flex: 1; }
+  .eco-card .eco-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 1mm;
+    line-height: 1.2;
+  }
+  .eco-card .eco-detail {
+    font-size: 9.5pt;
+    color: #444;
+    line-height: 1.4;
+  }
+
+  /* ============ FINANCE CARD ============ */
+  .finance-card {
+    background: linear-gradient(135deg, #fafafa 0%, #f4f1ec 100%);
+    border: 1px solid var(--line);
+    padding: 6mm 8mm;
+    margin: 4mm 0 5mm 0;
+  }
+  .finance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2mm 0;
+    border-bottom: 1px dotted var(--line);
+  }
+  .finance-row:last-child { border-bottom: none; }
+  .finance-row.subtotal {
+    border-bottom: 1px solid var(--gold);
+    border-top: 1px solid var(--gold);
+    margin-top: 2mm;
+    padding: 3mm 0;
+  }
+  .finance-label { font-family: "Cormorant Garamond", serif; font-size: 11pt; }
+  .finance-label .detail { color: #888; font-size: 9.5pt; font-style: italic; }
+  .finance-value {
+    font-family: "DM Mono", monospace;
+    font-size: 11.5pt;
+    font-weight: 500;
+  }
+  .finance-value.positive { color: #2d6a4f; }
+  .finance-value.negative { color: #9a3b3b; }
+  .finance-value.bold { font-weight: 700; font-size: 13pt; }
+
+  .finance-total {
+    margin-top: 4mm;
+    padding: 6mm;
+    background: var(--dark);
+    color: var(--paper);
+    text-align: center;
+  }
+  .finance-total .label {
+    font-family: "DM Mono", monospace;
+    font-size: 8.5pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .finance-total .amount {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32pt;
+    font-weight: 600;
+    color: var(--gold);
+    margin-top: 1mm;
+    line-height: 1;
+  }
+  .finance-total .roi {
+    margin-top: 2mm;
+    font-size: 10pt;
+    font-style: italic;
+    color: #ddd;
+  }
+
+  /* ============ OFFRES ============ */
+  .offres {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+    margin: 5mm 0;
+  }
+  .offre {
+    border: 1px solid var(--line);
+    padding: 5mm;
+    background: #fcfaf6;
+    position: relative;
+  }
+  .offre.flagship {
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, #fff8ec 0%, #fcfaf6 100%);
+  }
+  .offre .tag {
+    font-family: "DM Mono", monospace;
+    font-size: 8pt;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+  }
+  .offre h3 { font-size: 13pt; color: var(--dark); margin-top: 0; }
+  .offre .price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24pt;
+    font-weight: 600;
+    color: var(--gold);
+    margin: 3mm 0;
+    line-height: 1;
+  }
+  .offre .price .strike {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14pt;
+    font-weight: 400;
+    margin-right: 3mm;
+  }
+  .offre .price small {
+    font-size: 11pt;
+    color: var(--ink);
+    font-weight: 400;
+    font-style: italic;
+  }
+  .offre p, .offre ul li { font-size: 10pt; }
+  .offre ul { margin-top: 2mm; }
+  .offre .badge {
+    position: absolute;
+    top: -3mm;
+    right: 5mm;
+    background: var(--gold);
+    color: var(--paper);
+    font-family: "DM Mono", monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.15em;
+    padding: 2mm 4mm;
+    text-transform: uppercase;
+  }
+
+  /* ============ ROADMAP ============ */
+  .roadmap-year {
+    margin-bottom: 6mm;
+    padding-left: 8mm;
+    border-left: 2px solid var(--gold);
+    position: relative;
+  }
+  .roadmap-year::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+  .roadmap-year h3 { margin-top: 0; color: var(--dark); }
+  .year-tag {
+    display: inline-block;
+    font-family: "DM Mono", monospace;
+    font-size: 8pt;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+  }
+
+  /* ============ USE OF FUNDS ============ */
+  .use-of-funds {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin: 5mm 0;
+  }
+  .uf-item {
+    padding: 4mm 5mm;
+    border-left: 3px solid var(--gold);
+    background: #fcfaf6;
+  }
+  .uf-item .uf-pct {
+    font-family: "DM Mono", monospace;
+    font-size: 9pt;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+  }
+  .uf-item .uf-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 1mm 0 2mm 0;
+  }
+  .uf-item .uf-amount {
+    font-family: "DM Mono", monospace;
+    font-size: 11pt;
+    color: var(--ink);
+    margin-bottom: 2mm;
+  }
+  .uf-item .uf-desc {
+    font-size: 10pt;
+    color: #444;
+    font-style: italic;
+  }
+
+  /* ============ TARGET BLOCK ============ */
+  .target-block {
+    background: var(--soft);
+    border: 1px solid var(--line);
+    padding: 6mm 8mm;
+    margin: 5mm 0;
+  }
+  .target-block .stat { display: inline-block; margin-right: 8mm; }
+  .target-block .stat-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22pt;
+    font-weight: 600;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+  .target-block .stat-label {
+    font-family: "DM Mono", monospace;
+    font-size: 8pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  /* ============ TERMS BLOC ============ */
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 6mm 0;
+  }
+  .term {
+    padding: 5mm 4mm;
+    text-align: center;
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .term .term-label {
+    font-family: "DM Mono", monospace;
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 2mm;
+  }
+  .term .term-value {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18pt;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .term .term-detail {
+    font-size: 9pt;
+    color: #666;
+    margin-top: 1.5mm;
+    font-style: italic;
+  }
+
+  /* ============ PITCH FINAL ============ */
+  .pitch-block {
+    background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+    color: var(--paper);
+    padding: 9mm 11mm;
+    margin: 6mm 0;
+  }
+  .pitch-block h3 {
+    color: var(--gold);
+    font-size: 16pt;
+    margin: 0 0 4mm 0;
+  }
+  .pitch-block p {
+    color: #e8e2d4;
+    font-size: 11pt;
+    line-height: 1.7;
+  }
+  .pitch-block strong { color: var(--gold-light); }
+
+  .three-reasons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 5mm 0;
+  }
+  .reason {
+    padding: 5mm;
+    border-top: 3px solid var(--gold);
+    background: #fcfaf6;
+  }
+  .reason.eco { border-top-color: var(--leaf); background: #f5f8f0; }
+  .reason-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28pt;
+    color: var(--gold);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 2mm;
+  }
+  .reason.eco .reason-num { color: var(--leaf); }
+  .reason h4 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 2mm;
+  }
+  .reason p {
+    font-size: 10pt;
+    margin: 0;
+    color: #444;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    position: absolute;
+    bottom: 8mm;
+    left: 16mm;
+    right: 16mm;
+    display: flex;
+    justify-content: space-between;
+    font-family: "DM Mono", monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.15em;
+    color: #999;
+    text-transform: uppercase;
+    padding-top: 3mm;
+    border-top: 1px solid var(--line);
+  }
+  .confidential {
+    position: absolute;
+    top: 8mm;
+    right: 16mm;
+    font-family: "DM Mono", monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    body { background: white; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 12mm 14mm 18mm 14mm;
+      min-height: auto;
+    }
+    .cover { padding: 12mm 14mm 14mm 14mm; }
+    .no-print { display: none; }
+  }
+
+  .print-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--dark);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 12px 24px;
+    font-family: "DM Mono", monospace;
+    font-size: 10pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .print-btn:hover { background: var(--gold); color: var(--dark); }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">⎙ Печать</button>
+
+<!-- ====================================================== -->
+<!-- PAGE 1 — COUVERTURE                                     -->
+<!-- ====================================================== -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="brand">Frenchy Company</div>
+  </div>
+
+  <div class="cover-image-wrap">
+    <img src="./frenchy-cover.jpg" alt="Frenchy Tiny Houses — Модель Everbox 18 м²" class="cover-image-full" />
+  </div>
+
+  <div class="cover-bottom">
+    <h1 class="cover-title">Frenchy <strong>Tiny Houses</strong></h1>
+    <div class="subtitle">Инвестиционный меморандум</div>
+    <div class="horizon">Horizon 2027</div>
+    <div class="meta">Конфиденциальный документ · Компьень</div>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- PAGE 2 — RÉSUMÉ EXÉCUTIF                                -->
+<!-- ====================================================== -->
+<div class="page">
+  <div class="confidential">Конфиденциально</div>
+  <div class="section-header">
+    <h2>Краткое резюме</h2>
+    <span class="section-number">— 01 / 07</span>
+  </div>
+
+  <p class="lead">
+    Frenchy Tiny Houses превращает сертифицированный промышленный модуль,
+    оснащённый <strong>системой солнечной автономии</strong> и <strong>сбором
+    дождевой воды</strong>, в готовый объект краткосрочной аренды,
+    устанавливаемый на участке частного собственника. Проект опирается на
+    операционный опыт Frenchy Conciergerie (более 20 объектов под управлением)
+    и первый модуль, уже установленный и функционирующий.
+  </p>
+
+  <h3>Три ключевых показателя</h3>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Цель раунда</div>
+      <div class="value">150 K€</div>
+      <div class="unit">Отдельная SAS · BSA-AIR</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Маржа / Готовая продажа</div>
+      <div class="value">~ 15 K€</div>
+      <div class="unit">на единицу</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Цель 4 года</div>
+      <div class="value">100</div>
+      <div class="unit">модулей развёрнуто</div>
+    </div>
+  </div>
+
+  <h3>Почему сейчас</h3>
+  <p>
+    Существующий бизнес по управлению арендой уже доказывает экономическую
+    модель на практике. Первый Tiny House был установлен за <strong>≈ 10 000 €
+    в полной комплектации</strong> на утеплённой плите 4 × 6 м, что подтвердило
+    контроль затрат и реальных ограничений. Этот раунд должен профинансировать
+    переход от <strong>пилотной единицы к структурированному развёртыванию</strong>:
+    оптовая закупка для снижения цены приобретения, полная автоматизация
+    клиентского пути и первые найма.
+  </p>
+
+  <h3>Рычаг маржи</h3>
+  <p>
+    Каждый готовый Tiny House продаётся за <strong>29 999 € с НДС</strong> при
+    себестоимости около <strong>15 000 €</strong> (модуль + оборудование +
+    утеплённая плита + эко-комплект). Валовая маржа от каждой продажи напрямую
+    финансирует следующее развёртывание. <strong>Регулярная комиссия за
+    управление в 20 %</strong> от выручки добавляет компенсирующий поток дохода
+    на весь срок службы модуля (гарантия 10 лет).
+  </p>
+
+  <div class="note">
+    Данный меморандум предназначен для привлечения средств в отдельную SAS.
+    Это не коммерческое предложение и не регулируемый инвестиционный документ.
+    Представленные цифры являются консервативными оценками на основе уже
+    осуществляемой деятельности, без гарантии будущих результатов.
+  </div>
+
+  <div class="footer">
+    <span>Frenchy Tiny Houses</span>
+    <span>Краткое резюме · 02</span>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- PAGE 3 — LE CONCEPT                                     -->
+<!-- ====================================================== -->
+<div class="page">
+  <div class="confidential">Конфиденциально</div>
+  <div class="section-header">
+    <h2>Концепция</h2>
+    <span class="section-number">— 02 / 07</span>
+  </div>
+
+  <p class="lead">
+    Tiny House, оптимизированный для Airbnb, с эко-оснащением, установленный
+    на участке частного владельца и полностью обслуживаемый компанией Frenchy
+    Conciergerie. Площадь: <strong>18 м²</strong>.
+  </p>
+
+  <h3>Целевая аудитория: частный землевладелец</h3>
+  <p>
+    Frenchy Tiny Houses <strong>не ориентируется на операторов кемпингов,
+    институциональных инвесторов или проекты типа мини-деревень</strong>
+    (которые подпадают под режим открытой гостиничной деятельности с особым
+    регулированием). Наша целевая аудитория — <strong>частные владельцы
+    основного или второго жилья</strong>, у которых есть недоиспользуемый
+    участок сада.
+  </p>
+
+  <div class="target-block">
+    <div class="stat">
+      <span class="stat-num">75 m²</span>
+      <span class="stat-label">Минимальная площадь</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">500 m²</span>
+      <span class="stat-label">Средняя площадь целевого участка</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">&lt; 50 m</span>
+      <span class="stat-label">От подъездной дороги</span>
+    </div>
+  </div>
+
+  <p>
+    Площадь в 75 м² (~ 18 м² на модуль плюс пространство, террасу и подход)
+    составляет лишь <strong>малую часть</strong> стандартного участка. Решающий
+    критерий — не размер участка, а его <strong>доступность</strong>: ровная
+    поверхность, проходимая для техники доставки, не далее 50 м от дороги.
+    География имеет меньшее значение — доходность зависит больше от качества
+    управления, чем от абсолютного местоположения.
+  </p>
+
+  <h3>Почему 18 м²</h3>
+  <p>
+    Эта площадь выбрана не случайно: она одновременно оптимизирует пять
+    экономических и административных параметров.
+  </p>
+  <ul>
+    <li><strong>Сниженные затраты</strong> на приобретение и оснащение.</li>
+    <li><strong>Быстрая установка</strong> — один месяц после подготовки участка.</li>
+    <li><strong>Упрощённое обслуживание</strong> на весь срок службы модуля.</li>
+    <li><strong>Отличная доходность</strong> на м² аренды.</li>
+    <li><strong>Упрощённые административные процедуры</strong> благодаря порогу
+        в 20 м² французского законодательства.</li>
+  </ul>
+
+  <h3>Что берёт на себя Frenchy Tiny Houses</h3>
+  <p>
+    Весь путь — от инвестиционного решения до получения ежемесячного дохода:
+    <strong>предварительная консультация</strong>, <strong>установка</strong>,
+    <strong>административное сопровождение</strong> и <strong>полное управление
+    арендой</strong> через Frenchy Conciergerie. Владелец предоставляет участок и
+    получает чистый ежемесячный доход — больше ни к чему не прикасается.
+  </p>
+
+  <div class="footer">
+    <span>Frenchy Tiny Houses</span>
+    <span>Концепция · 03</span>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- PAGE 4 — PRODUIT & OFFRES                               -->
+<!-- ====================================================== -->
+<div class="page">
+  <div class="confidential">Конфиденциально</div>
+  <div class="section-header">
+    <h2>Продукт и техническая спецификация</h2>
+    <span class="section-number">— 03 / 07</span>
+  </div>
+
+  <h3>Технические характеристики модуля</h3>
+  <table class="tech">
+    <tr><th>Полезная внутренняя площадь</th><td>18 м² <em>(оптимизированный административный порог)</em></td></tr>
+    <tr><th>Внешние размеры</th><td>601 см × 308 см</td></tr>
+    <tr><th>Материалы / Гарантия</th><td>Панели ПВХ 38 мм с УФ-защитой — гарантия 10 лет</td></tr>
+    <tr><th>Нагрузка снег / ветер</th><td>200 кг / м²</td></tr>
+    <tr class="eco-row"><th>Энергия · Встроенные солнечные панели</th><td>4 фотоэлектрические панели на крыше <em>(собственное потребление)</em></td></tr>
+    <tr class="eco-row"><th>Вода · Сбор дождевой воды</th><td>Встроенная система сбора для наружного использования</td></tr>
+    <tr><th>Безопасность</th><td>Дверь с усиленным замком</td></tr>
+    <tr><th>Срок установки</th><td>1 месяц после подготовки участка</td></tr>
+    <tr><th>Требования к участку</th><td>Вода · Электричество · Слив Ø 100 мм</td></tr>
+  </table>
+
+  <div class="eco-block">
+    <div class="eco-tag">— Экологическая ответственность</div>
+    <h3>Эко-оснащение в стандартной комплектации, без доплаты для владельца</h3>
+    <p>
+      Каждый модуль поставляется с эко-оснащением серийно. Помимо экологической
+      составляющей, это <strong>прямой коммерческий рычаг</strong>: эко-проживание
+      активно растёт на Airbnb, с более высокой загрузкой и средним чеком, чем
+      у стандартных объектов.
+    </p>
+
+    <div class="eco-grid">
+      <div class="eco-card">
+        <div class="eco-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </div>
+        <div class="eco-content">
+          <div class="eco-title">4 фотоэлектрические панели</div>
+          <div class="eco-detail">Установлены на крыше модуля, обеспечивают питание в режиме
+            собственного потребления и снижают расходы на электроэнергию
+            при аренде.</div>
+        </div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"/>
+          </svg>
+        </div>
+        <div class="eco-content">
+          <div class="eco-title">Сбор дождевой воды</div>
+          <div class="eco-detail">Встроенная в крышу система сбора, рассчитанная на наружное
+            использование (полив, уборка террас) — без бытового повторного
+            использования, в соответствии с регламентом.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Frenchy Tiny Houses</span>
+    <span>Продукт и тех. характеристики · 04</span>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- PAGE 5 — OFFRES COMMERCIALES                            -->
+<!-- ====================================================== -->
+<div class="page">
+  <div class="confidential">Конфиденциально</div>
+  <div class="section-header">
+    <h2>Три предложения, одна стратегия</h2>
+    <span class="section-number">— 04 / 07</span>
+  </div>
+
+  <p class="lead">
+    Три взаимодополняющих варианта входа: прямая продажа для самостоятельного
+    инвестора, партнёрство со сниженной ценой для обеспечения постоянного
+    управления и аренда земли для расширения собственного парка.
+  </p>
+
+  <div class="offres">
+    <div class="offre">
+      <div class="tag">— Предложение 1 · Прямая продажа</div>
+      <h3>Tiny House под ключ</h3>
+      <div class="price">29 999 €<small> с НДС</small></div>
+      <p><strong>Включает:</strong></p>
+      <ul>
+        <li>Tiny House с эко-оснащением</li>
+        <li>4 солнечные панели + сбор дождевой воды</li>
+        <li>Мебель, кухня, ванная</li>
+        <li>Отопление и теплоизоляция</li>
+        <li>Терраса / утеплённая плита 6 × 4 м</li>
+        <li>Административное сопровождение</li>
+      </ul>
+      <p style="font-size: 10pt; margin-top: 3mm;">Прямая продажа без обязательств
+         по управлению. Клиент эксплуатирует объект по своему усмотрению.</p>
+    </div>
+
+    <div class="offre flagship">
+      <div class="badge">Партнёрское преимущество</div>
+      <div class="tag">— Предложение 2 · Флагманское приобретение</div>
+      <h3>Tiny с управлением арендой</h3>
+      <div class="price">
+        <span class="strike">29 999 €</span>19 999 €<small> с НДС</small>
+      </div>
+      <p style="font-size: 10pt;"><strong>Эксклюзивные партнёрские преимущества:</strong></p>
+      <ul>
+        <li>Немедленная скидка <strong>10 000 €</strong></li>
+        <li>Комиссия за управление <strong>20 %</strong> вместо 24 %</li>
+        <li>То же эко-оснащение включено</li>
+      </ul>
+      <p><strong>Условие:</strong> договор управления с Frenchy Conciergerie.</p>
+      <p style="font-size: 10pt;">Стратегия приобретения со сниженной точкой входа:
+         маржа от продажи равна нулю или отрицательная, но <strong>постоянное
+         управление в течение 10 лет</strong> с лихвой компенсирует.</p>
+    </div>
+  </div>
+
+  <div class="offres" style="grid-template-columns: 1fr;">
+    <div class="offre">
+      <div class="tag">— Предложение 3 · Земля</div>
+      <h3>Аренда земли компанией Frenchy Tiny Houses</h3>
+      <div class="price">150 € <small>—</small> 350 €<small> / месяц</small></div>
+      <p>Для владельцев, которые просто хотят сдать свою землю в аренду
+         Frenchy Tiny Houses, которая установит и будет эксплуатировать
+         собственный модуль. Тариф зависит от расположения, туристической
+         привлекательности, доступа и окружения.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Frenchy Tiny Houses</span>
+    <span>Предложения · 05</span>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- PAGE 6 — SIMULATION FINANCIÈRE                          -->
+<!-- ====================================================== -->
+<div class="page">
+  <div class="confidential">Конфиденциально</div>
+  <div class="section-header">
+    <h2>Финансовая модель</h2>
+    <span class="section-number">— 05 / 07</span>
+  </div>
+
+  <p class="lead">
+    Консервативная оценка на основе текущей эксплуатации. Цифры приведены
+    <strong>на модуль</strong>, при стандартной работе через Airbnb / Booking,
+    без учёта личного налогообложения инвестора.
+  </p>
+
+  <h3>Месячный обзор — чистый доход владельца</h3>
+
+  <div class="finance-card">
+    <div class="finance-row">
+      <span class="finance-label">Средний валовый доход <span class="detail">(без перевыставленной уборки)</span></span>
+      <span class="finance-value positive">+ 1 200,00 €</span>
+    </div>
+    <div class="finance-row">
+      <span class="finance-label">Комиссия платформы <span class="detail">(Airbnb / Booking — 15 %)</span></span>
+      <span class="finance-value negative">− 180,00 €</span>
+    </div>
+    <div class="finance-row">
+      <span class="finance-label">Комиссия за управление <span class="detail">(партнёрский тариф — 20 %)</span></span>
+      <span class="finance-value negative">− 240,00 €</span>
+    </div>
+    <div class="finance-row">
+      <span class="finance-label">Уборка <span class="detail">(35 € × 10 заездов / мес — перевыставляется гостю)</span></span>
+      <span class="finance-value">0,00 €</span>
+    </div>
+
+    <div class="finance-row subtotal">
+      <span class="finance-label"><strong>Чистый доход владельца</strong></span>
+      <span class="finance-value bold positive">≈ 780,00 € / месяц</span>
+    </div>
+
+    <div class="finance-total">
+      <div class="label">Чистая годовая доходность</div>
+      <div class="amount">≈ 9 360 €</div>
+      <div class="roi">Доходность &gt; 31 % при инвестиции под ключ в 29 999 €</div>
+    </div>
+  </div>
+
+  <h3>Источники дохода Frenchy Tiny Houses</h3>
+  <table class="data">
+    <tr>
+      <th>Продажа Tiny House под ключ (Предложение 1)</th>
+      <td class="right">29 999 € · валовая маржа ~ 15 000 €</td>
+    </tr>
+    <tr>
+      <th>Продажа с управлением (Предложение 2)</th>
+      <td class="right">19 999 € · приобретение с нулевой маржой</td>
+    </tr>
+    <tr>
+      <th>Регулярное управление арендой</th>
+      <td class="right">20–24 % от выручки арендодателя</td>
+    </tr>
+    <tr>
+      <th>Уборка / заезд</th>
+      <td class="right">35 € с НДС · перевыставляется гостю</td>
+    </tr>
+    <tr>
+      <th>Аренда земли (Предложение 3)</th>
+      <td class="right">150–350 € / месяц</td>
+    </tr>
+  </table>
+
+  <div class="note">
+    Уборка перевыставляется гостю при бронировании: она не уменьшает
+    чистый доход владельца, а является дополнительным доходом для Frenchy.
+    Эко-оснащение способствует более высокому среднему чеку, не учтённому
+    в консервативных оценках выше.
+  </div>
+
+  <div class="footer">
+    <span>Frenchy Tiny Houses</span>
+    <span>Финансовая модель · 06</span>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- PAGE 7 — LEVÉE & ALLOCATION                             -->
+<!-- ====================================================== -->
+<div class="page">
+  <div class="confidential">Конфиденциально</div>
+  <div class="section-header">
+    <h2>Раунд и распределение средств</h2>
+    <span class="section-number">— 06 / 07</span>
+  </div>
+
+  <p class="lead">
+    Целевой раунд <strong>150 000 €</strong> через формат <strong>BSA-AIR</strong>
+    (французский конвертируемый инструмент, аналог SAFE) в отдельной SAS.
+    Этот формат обеспечивает быстрое исполнение без предварительного согласования
+    оценки, с отложенным разводнением до следующего раунда финансирования.
+  </p>
+
+  <h3>Предлагаемые условия</h3>
+  <div class="terms-grid">
+    <div class="term">
+      <div class="term-label">Целевой тикет</div>
+      <div class="term-value">150 K€</div>
+      <div class="term-detail">Общий целевой объём</div>
+    </div>
+    <div class="term">
+      <div class="term-label">Потолок оценки</div>
+      <div class="term-value">1 M€</div>
+      <div class="term-detail">Макс. оценка при конвертации</div>
+    </div>
+    <div class="term">
+      <div class="term-label">Дисконт</div>
+      <div class="term-value">20 %</div>
+      <div class="term-detail">К следующему раунду</div>
+    </div>
+  </div>
+
+  <p style="font-size: 10.5pt;">
+    BSA-AIR конвертируется в акции при следующем раунде финансирования
+    (Series A ожидается через 18–24 месяца) по наиболее выгодной для инвестора
+    оценке: между <strong>фиксированным потолком</strong> и <strong>оценкой
+    следующего раунда, сниженной на 20 %</strong>. Стандартизированный формат,
+    сниженные юридические расходы, полное согласование интересов на создание
+    стоимости. Рекомендуемый минимальный тикет на инвестора: <strong>10 000 €</strong>.
+  </p>
+
+  <h3>Распределение средств</h3>
+  <div class="use-of-funds">
+    <div class="uf-item">
+      <div class="uf-pct">— 40 %</div>
+      <div class="uf-title">Начальный запас модулей</div>
+      <div class="uf-amount">≈ 60 000 €</div>
+      <div class="uf-desc">Заблаговременная закупка 4–5 модулей для согласования сниженных цен
+        приобретения и обеспечения контролируемых сроков поставки.</div>
+    </div>
+    <div class="uf-item">
+      <div class="uf-pct">— 20 %</div>
+      <div class="uf-title">Платформа и автоматизация</div>
+      <div class="uf-amount">≈ 30 000 €</div>
+      <div class="uf-desc">Разработка веб-сайта и полностью автоматизированного клиентского
+        пути — от симуляции до подписания.</div>
+    </div>
+    <div class="uf-item">
+      <div class="uf-pct">— 13 %</div>
+      <div class="uf-title">Маркетинг и реклама</div>
+      <div class="uf-amount">≈ 20 000 €</div>
+      <div class="uf-desc">Производство профессионального визуального контента, кампании
+        в Meta / Google, контент в соцсетях для бренда.</div>
+    </div>
+    <div class="uf-item">
+      <div class="uf-pct">— 7 %</div>
+      <div class="uf-title">Юридическое и административное</div>
+      <div class="uf-amount">≈ 10 000 €</div>
+      <div class="uf-desc">Создание SAS, коммерческие контракты, договоры управления,
+        соответствие нормам, интеллектуальная собственность.</div>
+    </div>
+    <div class="uf-item">
+      <div class="uf-pct">— 13 %</div>
+      <div class="uf-title">Оборотный капитал</div>
+      <div class="uf-amount">≈ 20 000 €</div>
+      <div class="uf-desc">Обеспечение первого года работы до достижения порога
+        самофинансирования.</div>
+    </div>
+    <div class="uf-item">
+      <div class="uf-pct">— 7 %</div>
+      <div class="uf-title">Первый стажёр</div>
+      <div class="uf-amount">≈ 10 000 €</div>
+      <div class="uf-desc">Найм младшего сотрудника для поддержки операционной деятельности
+        в первый год (администрация, работа с клиентами).</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Frenchy Tiny Houses</span>
+    <span>Раунд · 07</span>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- PAGE 8 — ROADMAP DÉTAILLÉE                              -->
+<!-- ====================================================== -->
+<div class="page">
+  <div class="confidential">Конфиденциально</div>
+  <div class="section-header">
+    <h2>Траектория 2026 — 2027</h2>
+    <span class="section-number">— 07 / 07</span>
+  </div>
+
+  <p class="lead">
+    Постепенное наращивание, основанное на измеримых вехах и последовательном
+    исполнении, которое снижает риск каждого этапа перед переходом к следующему.
+  </p>
+
+  <div class="roadmap-year">
+    <div class="year-tag">Год 1 — Структурирование и запуск</div>
+    <h3>Заложить фундамент</h3>
+    <ul>
+      <li>Создание SAS, заключение коммерческих договоров и договоров управления.</li>
+      <li>Запуск веб-сайта и автоматизированного клиентского пути.</li>
+      <li>Валидация цепочек поставок и логистики доставки.</li>
+      <li>Найм первого стажёра.</li>
+      <li>Закупка начального запаса (4–5 модулей).</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-year">
+    <div class="year-tag">Год 2 — Видимость и подтверждение масштаба</div>
+    <h3>Продемонстрировать тягу</h3>
+    <ul>
+      <li>Развёртывание первых 10 модулей у частных владельцев.</li>
+      <li>Производство профессионального визуального контента (фото / видео).</li>
+      <li>Активные рекламные кампании в Instagram, Facebook и Google.</li>
+      <li>Первые крупномасштабные операционные данные.</li>
+      <li>Подготовка возможного раунда Series A.</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-year">
+    <div class="year-tag">Годы 3 и 4 — Цель 2027</div>
+    <h3>Национальное расширение</h3>
+    <ul>
+      <li>Расширение до парка из 100 Tiny Houses на всей территории страны.</li>
+      <li>Оптимизация эксплуатационных расходов по географическим зонам.</li>
+      <li>Закрепление бренда как эталона эко-аренды Tiny под ключ.</li>
+      <li>Формирование значительного потока постоянного дохода от управления.</li>
+    </ul>
+  </div>
+
+  <div class="note" style="margin-top: 8mm;">
+    <strong>Гипотеза по постоянной марже.</strong> 100 модулей под управлением
+    при средней месячной комиссии в 240 € дают регулярный годовой доход порядка
+    <strong>288 000 €</strong> для SAS, независимо от новых продаж. Именно этот
+    поток формирует долгосрочную передаваемую стоимость.
+  </div>
+
+  <div class="footer">
+    <span>Frenchy Tiny Houses</span>
+    <span>Траектория · 08</span>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- PAGE 9 — POURQUOI INVESTIR MAINTENANT                   -->
+<!-- ====================================================== -->
+<div class="page">
+  <div class="confidential">Конфиденциально</div>
+  <div class="section-header">
+    <h2>Почему инвестировать сейчас</h2>
+    <span class="section-number">— Итог</span>
+  </div>
+
+  <p class="lead">
+    Три рациональных причины, аргумент исполнения, эко-ответственный курс.
+  </p>
+
+  <div class="three-reasons">
+    <div class="reason">
+      <div class="reason-num">01</div>
+      <h4>Промышленный риск снят</h4>
+      <p>Один Tiny House уже установлен и эксплуатируется. Модуль Everbox —
+         проверенный продукт с гарантией 10 лет и поставкой за один месяц.
+         Проект не требует финансирования рискованных НИОКР — только
+         масштабирование уже доказанной модели.</p>
+    </div>
+    <div class="reason">
+      <div class="reason-num">02</div>
+      <h4>Операционная база уже создана</h4>
+      <p>Frenchy Conciergerie управляет более 20 объектами, имеет французские
+         лицензии Carte T и Carte G, владеет автоматизацией Airbnb / Booking
+         и уже эксплуатирует первый Tiny House. Принимающая структура готова —
+         каждая продажа сразу подпитывает действующий операционный бизнес.</p>
+    </div>
+    <div class="reason eco">
+      <div class="reason-num">03</div>
+      <h4>Рынок растёт и становится эко-сознательным</h4>
+      <p>Эко-ответственное необычное жильё — один из быстрорастущих сегментов
+         Airbnb. Tiny Houses, солнечные панели, сбор дождевой воды: сочетание
+         коммерческих аргументов, оправдывающих повышенный средний чек.
+         Ни один французский игрок ещё не индустриализовал это предложение
+         под ключ.</p>
+    </div>
+  </div>
+
+  <div class="pitch-block">
+    <h3>Аргумент исполнения</h3>
+    <p>
+      Frenchy Tiny Houses — это не проект основателя, ищущего опыта.
+      Это естественное расширение уже построенной предпринимательской
+      экосистемы с валидированным продуктом, операционной командой
+      и существующей клиентской базой.
+    </p>
+    <p style="margin-top: 4mm;">
+      Инвестор финансирует не обещание, а <strong>ускорение
+      механизма, который уже работает</strong>. Именно это отличает данный
+      меморандум от классических проектов ранней стадии: <strong>каждое
+      инвестированное евро поступает в работающую машину, а не в ту,
+      которую ещё предстоит построить</strong>.
+    </p>
+  </div>
+
+  <h3>Долгосрочная цель</h3>
+  <p>
+    Помимо краткосрочной доходности, Frenchy Tiny Houses задумана как
+    <strong>передаваемый и масштабируемый актив</strong>: регулярный поток
+    дохода, основанный на долгосрочных договорах управления и обеспеченный
+    парком физических объектов с эко-оснащением. Наиболее естественный
+    профиль выхода на горизонте 5–7 лет — продажа игроку рынка открытого
+    гостеприимства, необычного туризма или управления недвижимостью.
+  </p>
+
+  <div style="margin-top: 8mm; text-align: center; padding: 6mm; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <p style="font-family: 'DM Mono', monospace; font-size: 9pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 3mm;">— Контакт —</p>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 14pt; margin-bottom: 1mm;"><strong>Raphaël Jacquet</strong></p>
+    <p style="font-style: italic; color: var(--ink);">Frenchy Company · Compiègne</p>
+    <p style="font-family: 'DM Mono', monospace; font-size: 10pt; margin-top: 2mm;">frenchycompany.fr</p>
+  </div>
+
+  <div class="footer">
+    <span>Frenchy Tiny Houses — Конфиденциальный документ</span>
+    <span>Почему сейчас · 09</span>
+  </div>
+</div>
+
+</body>
+</html>
