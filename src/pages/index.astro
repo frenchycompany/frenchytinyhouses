@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import KpiBlock from '../components/KpiBlock.astro';
+import OfferCard from '../components/OfferCard.astro';
+
+const title = 'Frenchy Tiny Houses — Posez. Louez. Encaissez.';
+const description =
+  "Une Tiny House de 18 m² installée chez vous, gérée intégralement par Frenchy Conciergerie. Revenu locatif passif, sans intervention.";
+---
+<BaseLayout title={title} description={description}>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="mx-auto max-w-page px-6 pt-20 pb-24 md:pt-28 md:pb-32 grid gap-16 md:grid-cols-12 items-end">
+      <div class="md:col-span-7">
+        <p class="section-num">— 01 / 06</p>
+        <h1 class="mt-6 font-serif text-5xl md:text-7xl leading-[0.95] text-dark">
+          Posez.<br />Louez.<br />Encaissez.
+        </h1>
+        <p class="mt-8 max-w-prose text-lg leading-relaxed text-ink/80">
+          Une Tiny House de 18&nbsp;m² installée dans le fond de votre jardin.
+          Gérée intégralement par <strong class="text-dark">Frenchy Conciergerie</strong>.
+          Vous fournissez le terrain — nous fournissons tout le reste.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="/simulateur/" class="btn-gold">Estimer mon revenu</a>
+          <a href="/concept/" class="btn-ghost">Comprendre le concept</a>
+        </div>
+      </div>
+
+      <div class="md:col-span-5">
+        <div class="border border-gold/30 bg-paper p-6">
+          <p class="label-mono">Aperçu</p>
+          <img
+            src="/frenchy-cover.jpg"
+            alt="Tiny House Everbox 18 m² installée"
+            class="mt-4 w-full h-auto"
+            loading="eager"
+          />
+          <p class="mt-4 text-xs italic text-ink/60">
+            Modèle Everbox — 18 m², garantie 10 ans, livrée et posée en ~1 mois.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI BAND -->
+  <section class="border-y border-line bg-paper/60">
+    <div class="mx-auto max-w-page px-6 py-16 grid gap-12 md:grid-cols-3">
+      <KpiBlock
+        value="29 999 €"
+        label="Prix de vente, tout équipement inclus"
+        note="Pose, panneaux solaires, équipement connecté, box 5G la 1ère année."
+      />
+      <KpiBlock
+        value="≈ 780 €"
+        label="Revenu net mensuel propriétaire"
+        note="Estimation basse, après commission gestion 20 % et frais plateforme."
+      />
+      <KpiBlock
+        value="10 ans"
+        label="Garantie constructeur sur le bâti"
+        note="Panneaux PVC 38 mm, structure isolée, modèle Everbox."
+      />
+    </div>
+  </section>
+
+  <!-- 3 STEPS -->
+  <section>
+    <div class="mx-auto max-w-page px-6 py-24">
+      <p class="section-num">— 02 / 06</p>
+      <h2 class="mt-4 font-serif text-4xl md:text-5xl text-dark">
+        Trois étapes. Pas une de plus.
+      </h2>
+      <p class="mt-6 max-w-prose text-lg text-ink/80">
+        Le produit est volontairement unique. Pas d'options, pas d'upsell.
+        Simple à comprendre, simple à mettre en route.
+      </p>
+
+      <div class="mt-14 grid gap-10 md:grid-cols-3">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-gold">— Étape 01</p>
+          <h3 class="mt-3 font-serif text-2xl text-dark">Posez</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-ink/80">
+            Vous nous indiquez votre terrain. Nous vérifions l'accessibilité,
+            l'urbanisme, et planifions la dalle. Pose en environ un mois.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-gold">— Étape 02</p>
+          <h3 class="mt-3 font-serif text-2xl text-dark">Louez</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-ink/80">
+            Frenchy Conciergerie publie l'annonce, gère les voyageurs, le
+            ménage, la maintenance. Tout est piloté à distance.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-gold">— Étape 03</p>
+          <h3 class="mt-3 font-serif text-2xl text-dark">Encaissez</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-ink/80">
+            Vous recevez votre virement mensuel. Tableau de bord en ligne,
+            transparence totale, pas un appel à passer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFERS -->
+  <section class="bg-paper/60 border-y border-line">
+    <div class="mx-auto max-w-page px-6 py-24">
+      <p class="section-num">— 03 / 06</p>
+      <h2 class="mt-4 font-serif text-4xl md:text-5xl text-dark">
+        Trois manières d'entrer.
+      </h2>
+      <p class="mt-6 max-w-prose text-lg text-ink/80">
+        Selon votre rapport au capital et à l'engagement, choisissez la formule
+        qui vous correspond.
+      </p>
+
+      <div class="mt-14 grid gap-8 md:grid-cols-3">
+        <OfferCard
+          num="01"
+          title="Vente sèche"
+          lead="Vous achetez la Tiny House. Elle est à vous, vous gérez ou non."
+          bullets={[
+            '29 999 € livrée, posée, équipée',
+            'Garantie 10 ans sur le bâti',
+            'Aucune contrainte de gestion par nous',
+          ]}
+          cta={{ href: '/offres/#vente', label: 'Voir le détail' }}
+        />
+        <OfferCard
+          num="02"
+          title="Vente + gestion intégrale"
+          lead="Vous achetez. Nous gérons. Revenu net mensuel sans rien faire."
+          bullets={[
+            'Commission 20 % sur le brut locatif',
+            'Reporting mensuel détaillé',
+            "Maintenance et SAV pris en charge",
+          ]}
+          cta={{ href: '/offres/#gestion', label: 'Voir le détail' }}
+          highlight
+        />
+        <OfferCard
+          num="03"
+          title="Location de terrain"
+          lead="Vous mettez votre terrain à disposition. Nous installons la nôtre."
+          bullets={[
+            'Loyer mensuel garanti',
+            'Aucun investissement initial',
+            'Engagement pluriannuel',
+          ]}
+          cta={{ href: '/offres/#terrain', label: 'Voir le détail' }}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="mx-auto max-w-page px-6 py-24 text-center">
+      <p class="section-num">— 06 / 06</p>
+      <h2 class="mt-4 font-serif text-4xl md:text-5xl text-dark max-w-3xl mx-auto leading-tight">
+        Étude gratuite et personnalisée<br />de votre terrain.
+      </h2>
+      <p class="mt-6 max-w-prose mx-auto text-lg text-ink/80">
+        Quelques questions, une estimation conservatrice, un retour sous 48 h.
+        Sans engagement.
+      </p>
+      <div class="mt-10">
+        <a href="/contact/" class="btn-gold">Demander mon étude</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

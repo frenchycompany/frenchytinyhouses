@@ -1,0 +1,52 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-line bg-paper/40 mt-24">
+  <div class="mx-auto max-w-page px-6 py-12 grid gap-10 md:grid-cols-4">
+    <div>
+      <p class="font-mono text-xs uppercase tracking-widest text-dark">Frenchy Tiny Houses</p>
+      <p class="mt-3 text-sm text-ink/70 leading-relaxed">
+        Une marque du groupe Frenchy Company.<br />
+        Compiègne, France.
+      </p>
+    </div>
+    <div>
+      <p class="label-mono">Le projet</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="/concept/" class="hover:text-gold">Le concept</a></li>
+        <li><a href="/produit/" class="hover:text-gold">Le produit</a></li>
+        <li><a href="/offres/" class="hover:text-gold">Les offres</a></li>
+        <li><a href="/pourquoi-nous/" class="hover:text-gold">Pourquoi nous</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="label-mono">Outils</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="/simulateur/" class="hover:text-gold">Simulateur de revenu</a></li>
+        <li><a href="/contact/" class="hover:text-gold">Contact</a></li>
+        <li>
+          <a href="https://invest.frenchytinyhouses.fr" class="hover:text-gold">
+            Espace investisseurs
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p class="label-mono">Légal</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="/mentions-legales/" class="hover:text-gold">Mentions légales</a></li>
+        <li><a href="/confidentialite/" class="hover:text-gold">Confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-line">
+    <div class="mx-auto max-w-page px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
+      <p class="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+        © {year} Frenchy Company — Tous droits réservés
+      </p>
+      <p class="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+        Posez. Louez. Encaissez.
+      </p>
+    </div>
+  </div>
+</footer>

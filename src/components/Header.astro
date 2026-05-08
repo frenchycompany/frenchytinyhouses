@@ -1,0 +1,42 @@
+---
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/concept/', label: 'Concept' },
+  { href: '/produit/', label: 'Produit' },
+  { href: '/offres/', label: 'Offres' },
+  { href: '/simulateur/', label: 'Simulateur' },
+  { href: '/pourquoi-nous/', label: 'Pourquoi nous' },
+  { href: '/contact/', label: 'Contact' },
+];
+const isActive = (href: string) => path === href || path.startsWith(href);
+---
+<header class="border-b border-line bg-paper/60 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-page items-center justify-between px-6 py-5">
+    <a href="/" class="font-mono text-sm uppercase tracking-widest text-dark">
+      Frenchy<span class="text-gold"> · </span>Tiny&nbsp;Houses
+    </a>
+    <nav class="hidden md:block">
+      <ul class="flex items-center gap-8">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'font-mono text-xs uppercase tracking-widest transition',
+                isActive(item.href) ? 'text-gold' : 'text-ink/70 hover:text-dark',
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <a
+      href="/contact/"
+      class="hidden md:inline-block font-mono text-xs uppercase tracking-widest text-paper bg-dark px-4 py-2 transition hover:bg-gold"
+    >
+      Étude gratuite
+    </a>
+  </div>
+</header>

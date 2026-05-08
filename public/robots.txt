@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /investisseurs/
+Disallow: /gestion/
+
+Sitemap: https://frenchytinyhouses.fr/sitemap-index.xml

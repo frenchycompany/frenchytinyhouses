@@ -1,0 +1,36 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  lead: string;
+  bullets: string[];
+  cta?: { href: string; label: string };
+  highlight?: boolean;
+}
+const { num, title, lead, bullets, cta, highlight = false } = Astro.props;
+---
+<article
+  class:list={[
+    'flex flex-col h-full p-8 transition',
+    highlight
+      ? 'border border-gold bg-paper shadow-sm'
+      : 'border border-gold/30 bg-paper/80 hover:border-gold/60',
+  ]}
+>
+  <p class="section-num">— {num}</p>
+  <h3 class="mt-4 font-serif text-2xl leading-snug text-dark">{title}</h3>
+  <p class="mt-4 text-[15px] leading-relaxed text-ink/80">{lead}</p>
+  <ul class="mt-6 space-y-2 text-sm text-ink/80">
+    {bullets.map((b) => (
+      <li class="flex gap-3">
+        <span class="text-gold mt-[2px]">—</span>
+        <span>{b}</span>
+      </li>
+    ))}
+  </ul>
+  {cta && (
+    <a href={cta.href} class="mt-8 self-start font-mono text-xs uppercase tracking-widest text-gold hover:text-dark">
+      {cta.label} →
+    </a>
+  )}
+</article>
