@@ -25,16 +25,23 @@ Le site web est **l'extension naturelle** d'un écosystème entrepreneurial déj
 construit. Pas un MVP qui cherche son marché. Un produit qui structure une
 mécanique commerciale et opérationnelle existante.
 
-**Tagline éditoriale** : *« Posez. Louez. Encaissez. »* (à valider — voir §5)
+**Tagline éditoriale** : *« Posez. Louez. Encaissez. »* — validée le 2026-05-08.
+
+**Domaine canonique** : `frenchytinyhouses.fr` (pluriel). Le sous-domaine
+investisseurs sera `invest.frenchytinyhouses.fr`.
 
 ---
 
 ## 2. Les trois zones du site
-serveur vps : 87.106.246.151
-dossier : /var/www/frenchytinyhouses/
-bdd sql : 87.106.246.151
-login : root
-mot de passe : **Baycpq25**
+
+> **Infrastructure** — les valeurs concrètes (IP, chemins, identifiants, mot de
+> passe BDD) ne vivent **jamais** dans ce fichier. Elles sont stockées :
+> - en local dans `.env.local` (non commité, voir `.env.example`)
+> - côté serveur dans `/etc/frenchy/.env` (lu par systemd, plus tard)
+> - dans GitHub Secrets pour le pipeline de déploiement (`VPS_HOST`,
+>   `VPS_USER`, `VPS_SSH_KEY`, `DEPLOY_PATH`)
+>
+> Voir §11 pour la procédure complète.
 
 Le site se structure en **trois zones distinctes** avec des audiences, des
 objectifs de conversion, et des niveaux d'accès différents.
@@ -52,7 +59,9 @@ une Tiny House dans leur fond de jardin pour générer un revenu locatif.
 **Pages clés** :
 - **Home** — héro fort, value prop, 3 KPI (29 999 €, ~780 €/mois, garantie 10 ans), CTA simulateur
 - **Le Concept** — comment ça marche, pour qui (le particulier, pas le campeur)
-- **Produit** — fiche technique + équipement éco (4 panneaux solaires + récup eau)
+- **Produit** — fiche technique + équipement éco + équipement piloté à distance
+  (voir §5bis : tout ce qui peut être télégéré l'est, pour permettre le scaling
+  opérationnel de la conciergerie sans linéarité humaine)
 - **Offres** — les 3 cartes (vente sèche / partenariat gestion / location terrain)
 - **Simulateur** ★ — *l'outil de conversion principal* (voir §3)
 - **Pourquoi nous** — les 3 raisons + argument d'exécution
@@ -82,7 +91,15 @@ dès le début.
 
 ### 2.3 — Zone investisseurs (gated)
 
-**URL** : `/investisseurs/*` (gate à minima — password partagé en v1, auth réelle en v2)
+**URL** : `invest.frenchytinyhouses.fr` (sous-domaine dédié) — gate HTTP Basic Auth
+au niveau nginx en v1 (login/mdp partagés, changeables sans redeploy), magic-link
+par email en v2.
+
+**Architecture** : un seul repo Astro, un seul build, deux vhosts nginx. Le
+sous-domaine sert `dist/investisseurs/` et a son propre `robots.txt` qui bloque
+toute indexation. Header sobre marque + "Espace investisseurs", layout plus dense
+qui réutilise les composants signatures du dossier (numérotation `— 01 / 07`,
+badges "Confidentiel" en mono).
 
 **Audience** : investisseurs prospects pour la levée BSA-AIR + investisseurs
 existants après closing.
@@ -269,6 +286,45 @@ colors: {
 
 ---
 
+## 5bis. Le produit — équipement standard
+
+La Tiny House est vendue **sans option, sans upsell**. Le produit est délibérément
+unique pour rester simple à comprendre et à mettre en route.
+
+### Le bâti (déjà dans le dossier)
+- 18 m² (modèle Everbox), 601 × 308 cm
+- Panneaux PVC 38 mm, garantie 10 ans
+- 4 panneaux solaires + système de récupération d'eau de pluie
+- Installation : pose sur dalle isolée en ~1 mois
+
+### L'équipement piloté à distance
+
+Tout ce qui peut être télégéré l'est. Pas par confort technologique — pour que
+la conciergerie gère 100 unités sans ajouter 100 personnes. Chaque ligne est
+formulée par ce qu'elle résout, jamais par la techno.
+
+- **Chauffage Wi-Fi 2000 W** — pilotable par la conciergerie, aucun oubli, conso
+  optimisée entre voyageurs
+- **Robot aspirateur-laveur connecté** — ménage entre voyageurs sans intervention
+  humaine sur place
+- **Serrure / boîte à clé connectée** — check-in 24/7 autonome, pas de remise de clé
+- **Box 5G + abonnement inclus la 1ère année** — Wi-Fi opérationnel partout en
+  France, pas de fibre à tirer ; le propriétaire reprend l'abonnement à son nom
+  ensuite (à présenter comme "tout inclus pour démarrer")
+- **Éclairage connecté** — scénarios on/off centralisés, économies
+- **TV connectée** — standard locatif court-terme
+- **Déshumidificateur connecté** — défaut récurrent constaté sur les modules
+  très isolés (formation de buée), résolu en série
+- **Chauffe-eau connecté** — pilotable à distance, mêmes bénéfices opérationnels
+  que le chauffage
+
+### Autonomie / low-cost énergie
+Argument transverse à la fiche produit : 4 panneaux solaires + appareils Wi-Fi
+optimisables à distance + récup eau de pluie. Cible communiquée : **budget
+énergie 0–20 €/mois selon saison** (à valider conjointement, mention "estimation").
+
+---
+
 ## 6. Roadmap par phases
 
 Une phase ne démarre pas tant que la précédente n'est pas livrée et stable.
@@ -365,13 +421,24 @@ Une phase ne démarre pas tant que la précédente n'est pas livrée et stable.
 
 ---
 
-## 9. Décisions ouvertes (à trancher avec Raphaël)
+## 9. Décisions
 
-- [ ] Tagline officielle (proposition : *« Posez. Louez. Encaissez. »*)
-- [ ] Choix du formulaire : Tally vs Formspree vs Cal.com pour les RDV
+### Tranchées (2026-05-08)
+- ✅ Tagline officielle : *« Posez. Louez. Encaissez. »*
+- ✅ Domaine canonique : `frenchytinyhouses.fr` (pluriel)
+- ✅ Sous-domaine investisseurs : `invest.frenchytinyhouses.fr` (gate Basic Auth v1)
+- ✅ Formulaire : **Tally** (iframe + redirect prefill, zéro backend)
+- ✅ Analytics : **Umami self-hosted** sur le VPS (zéro coût marginal)
+- ✅ Produit unique sans option / sans upsell
+- ✅ Équipement connecté (voir §5bis) inclus en standard
+- ✅ Box 5G : tout inclus la 1ère année, propriétaire reprend l'abonnement ensuite
+- ✅ Chauffe-eau : standard, connecté
+
+### Encore à trancher
 - [ ] Faut-il une page blog/journal pour SEO long terme ?
 - [ ] Espace gestion : web app dédiée ou intégrée au site ?
 - [ ] Newsletter investisseurs (Buttondown, Resend, ou rien) ?
+- [ ] Fourchette officielle "budget énergie 0–20 €/mois" — à valider
 
 ---
 
@@ -387,5 +454,51 @@ Une phase ne démarre pas tant que la précédente n'est pas livrée et stable.
 
 ---
 
-*Dernière mise à jour : 8 mai 2026.*
+## 11. Gestion des secrets & déploiement
+
+> Le but : **ne plus jamais coller de credentials dans une conversation** ni dans
+> un fichier commité. Une rotation initiale, puis le pipeline pousse tout seul.
+
+### Une fois (à faire par Raphaël, hors session Claude)
+
+1. **Rotater le mot de passe root du VPS** — il a été commité publiquement, il
+   est compromis. Sur le VPS : `passwd`.
+2. **Créer une clé SSH dédiée au déploiement** — sur ton poste :
+   `ssh-keygen -t ed25519 -f ~/.ssh/frenchy_deploy -C "frenchy-deploy"` (sans
+   passphrase pour automatisation).
+3. **Autoriser cette clé sur le VPS** (idéalement sur un user non-root, ex.
+   `deploy`) :
+   `ssh-copy-id -i ~/.ssh/frenchy_deploy.pub deploy@<IP>` puis tester
+   `ssh -i ~/.ssh/frenchy_deploy deploy@<IP>`.
+4. **Durcir SSH** : dans `/etc/ssh/sshd_config`, mettre
+   `PermitRootLogin prohibit-password` et `PasswordAuthentication no`, puis
+   `systemctl reload ssh`.
+5. **Renseigner les GitHub Secrets** du repo (Settings → Secrets → Actions) :
+   - `VPS_HOST` — IP ou nom DNS du serveur
+   - `VPS_USER` — `deploy`
+   - `VPS_SSH_KEY` — contenu de `~/.ssh/frenchy_deploy` (privée)
+   - `DEPLOY_PATH` — `/var/www/frenchytinyhouses`
+6. **Communiquer une fois à Claude** uniquement les valeurs strictement
+   nécessaires en cours de session (jamais le mdp), pour des opérations ad-hoc.
+   Sinon, tout passe par CI.
+
+### Côté local (dev)
+
+- `.env.local` (non commité, voir `.env.example`) contient les variables que
+  Claude doit pouvoir relire en cours de session — *aucune valeur sensible
+  prod*. Plutôt : URLs publiques, IDs de formulaires Tally, domaine Umami, etc.
+- Pour les valeurs sensibles dont Claude a ponctuellement besoin (ex. tester
+  une connexion SSH), on les fournit dans le message en clair et on les
+  considère "consommées" — elles ne sont pas notées dans le repo.
+
+### Côté serveur (plus tard, phase 5+)
+
+- Variables sensibles (DB password, API keys) dans `/etc/frenchy/.env`,
+  permission `0640 root:frenchy`, lues par le service systemd via
+  `EnvironmentFile=`. Jamais dans le repo, jamais dans les logs.
+
+---
+
+*Dernière mise à jour : 8 mai 2026 — décisions tagline/domaine/5G/chauffe-eau
+verrouillées, équipement connecté ajouté §5bis, §11 secrets/déploiement créé.*
 *Mainteneur : Raphaël Jacquet — Frenchy Company, Compiègne.*
