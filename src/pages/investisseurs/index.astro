@@ -1,0 +1,79 @@
+---
+import InvestorLayout from '../../layouts/InvestorLayout.astro';
+import KpiBlock from '../../components/KpiBlock.astro';
+import mock from '../../data/investor-mock.json';
+
+const k = mock.kpis;
+const fmtEur = (n: number) => new Intl.NumberFormat('fr-FR').format(n) + ' €';
+---
+<InvestorLayout
+  title="Espace investisseurs — Frenchy Tiny Houses"
+  description="Confidentiel — synthèse de la levée Frenchy Tiny Houses, dossier multilingue, dashboard opérationnel."
+  num="— 01 / 03"
+>
+  <section class="mx-auto max-w-page px-6 pt-10 pb-16">
+    <h1 class="font-serif text-5xl md:text-6xl text-dark leading-[0.95]">
+      Levée 150 000 € — BSA-AIR
+    </h1>
+    <p class="mt-6 max-w-prose text-xl leading-relaxed text-ink/80">
+      Frenchy Tiny Houses commercialise des Tiny Houses de 18&nbsp;m² installées
+      chez des particuliers, gérées intégralement par Frenchy Conciergerie.
+      Cible 2027 : 100 unités déployées sur le territoire français.
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center gap-4">
+      <a href="/investisseurs/dashboard/" class="btn-gold">Voir le dashboard</a>
+      <a href="/investisseurs/dossier/" class="btn-ghost">Lire le dossier</a>
+    </div>
+  </section>
+
+  <section class="border-y border-line bg-paper/60">
+    <div class="mx-auto max-w-page px-6 py-12 grid gap-8 md:grid-cols-4">
+      <KpiBlock value={String(k.unitsInstalled)} label="Unités installées" />
+      <KpiBlock value={String(k.unitsContracted)} label="Contrats signés" />
+      <KpiBlock value={String(k.unitsInPipeline)} label="En pipeline" />
+      <KpiBlock value={fmtEur(k.revenueYtdEur)} label="Revenu cumulé YTD" />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-page px-6 py-16">
+    <p class="section-num">— Le dossier en 4 langues</p>
+    <h2 class="mt-4 font-serif text-3xl text-dark">Disponible en FR / EN / RU / ZH</h2>
+    <div class="mt-8 grid gap-4 md:grid-cols-4">
+      <a href="/dossier/fr.html" class="border border-gold/30 bg-paper p-5 hover:border-gold transition">
+        <p class="label-mono">Français</p>
+        <p class="mt-2 font-serif text-xl text-dark">Dossier de levée FR</p>
+      </a>
+      <a href="/dossier/en.html" class="border border-gold/30 bg-paper p-5 hover:border-gold transition">
+        <p class="label-mono">English</p>
+        <p class="mt-2 font-serif text-xl text-dark">Funding deck EN</p>
+      </a>
+      <a href="/dossier/ru.html" class="border border-gold/30 bg-paper p-5 hover:border-gold transition">
+        <p class="label-mono">Русский</p>
+        <p class="mt-2 font-serif text-xl text-dark">Инвест-меморандум</p>
+      </a>
+      <a href="/dossier/zh.html" class="border border-gold/30 bg-paper p-5 hover:border-gold transition">
+        <p class="label-mono">中文</p>
+        <p class="mt-2 font-serif text-xl text-dark">融资方案</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-paper/60 border-y border-line">
+    <div class="mx-auto max-w-page px-6 py-16">
+      <p class="section-num">— Pourquoi ce dossier est différent</p>
+      <h2 class="mt-4 font-serif text-3xl text-dark max-w-3xl">
+        Vous n'investissez pas dans une projection. Vous investissez dans une opération qui tourne.
+      </h2>
+      <p class="mt-6 max-w-prose text-[16px] leading-relaxed text-ink/80">
+        Frenchy Conciergerie gère 20+ propriétés en location courte-durée. La
+        première Tiny House est posée et exploitée. Le dashboard ci-contre est
+        alimenté en temps réel — au fil des installations, il devient
+        auto-démonstratif.
+      </p>
+      <div class="mt-8">
+        <a href="/investisseurs/dashboard/" class="btn-gold">Ouvrir le dashboard</a>
+      </div>
+    </div>
+  </section>
+</InvestorLayout>

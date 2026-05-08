@@ -1,0 +1,67 @@
+{
+  "_note": "Mock data Phase 1. Remplacé par data réelle en Phase 5+. Aucune valeur ici n'est officielle ; les chiffres servent à matérialiser la dataviz.",
+  "asOf": "2026-05-08",
+  "kpis": {
+    "unitsInstalled": 1,
+    "unitsContracted": 3,
+    "unitsInPipeline": 12,
+    "leadsThisMonth": 47,
+    "revenueYtdEur": 9360,
+    "averageOccupancyPct": 78
+  },
+  "funnel": [
+    { "label": "Prospects qualifiés", "value": 47 },
+    { "label": "Études personnalisées", "value": 18 },
+    { "label": "Contrats signés", "value": 3 },
+    { "label": "Installations livrées", "value": 1 }
+  ],
+  "units": [
+    {
+      "id": "FTH-001",
+      "city": "Compiègne",
+      "region": "Hauts-de-France",
+      "lat": 49.4179,
+      "lng": 2.8261,
+      "status": "installed",
+      "occupancyPct": 78,
+      "monthRevenueEur": 940
+    },
+    {
+      "id": "FTH-002",
+      "city": "Aix-en-Provence",
+      "region": "PACA",
+      "lat": 43.5297,
+      "lng": 5.4474,
+      "status": "contracted",
+      "occupancyPct": null,
+      "monthRevenueEur": null
+    },
+    {
+      "id": "FTH-003",
+      "city": "Annecy",
+      "region": "Auvergne-Rhône-Alpes",
+      "lat": 45.8992,
+      "lng": 6.1294,
+      "status": "contracted",
+      "occupancyPct": null,
+      "monthRevenueEur": null
+    },
+    {
+      "id": "FTH-004",
+      "city": "La Rochelle",
+      "region": "Nouvelle-Aquitaine",
+      "lat": 46.1603,
+      "lng": -1.1511,
+      "status": "pipeline",
+      "occupancyPct": null,
+      "monthRevenueEur": null
+    }
+  ],
+  "activity": [
+    { "ts": "2026-05-07T14:00:00Z", "label": "Unité #001 — Compiègne — 78 % d'occupation en avril" },
+    { "ts": "2026-05-04T09:30:00Z", "label": "Nouveau contrat signé en région PACA" },
+    { "ts": "2026-04-28T18:10:00Z", "label": "Étude personnalisée envoyée — Annecy" },
+    { "ts": "2026-04-22T11:00:00Z", "label": "Visite terrain réalisée — La Rochelle" },
+    { "ts": "2026-04-19T08:45:00Z", "label": "Pose dalle isolée terminée — Compiègne" }
+  ]
+}

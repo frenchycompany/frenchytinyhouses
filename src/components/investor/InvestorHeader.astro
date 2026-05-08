@@ -1,0 +1,45 @@
+---
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/investisseurs/', label: 'Vue d\'ensemble' },
+  { href: '/investisseurs/dashboard/', label: 'Dashboard' },
+  { href: '/investisseurs/dossier/', label: 'Dossier' },
+];
+const isActive = (href: string) => path === href || path.startsWith(href);
+---
+<header class="border-b border-gold/40 bg-dark text-paper">
+  <div class="mx-auto flex max-w-page items-center justify-between px-6 py-4">
+    <div class="flex items-baseline gap-4">
+      <a href="/investisseurs/" class="font-mono text-sm uppercase tracking-widest">
+        Frenchy<span class="text-gold"> · </span>Tiny Houses
+      </a>
+      <span class="hidden md:inline font-mono text-[10px] uppercase tracking-widest text-gold">
+        Espace investisseurs
+      </span>
+    </div>
+    <nav>
+      <ul class="flex items-center gap-6">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'font-mono text-xs uppercase tracking-widest transition',
+                isActive(item.href) ? 'text-gold' : 'text-paper/70 hover:text-paper',
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+  <div class="border-t border-gold/30 bg-dark/80">
+    <div class="mx-auto max-w-page px-6 py-2">
+      <p class="font-mono text-[10px] uppercase tracking-widest text-gold/80">
+        Confidentiel · Document de travail · Mai 2026
+      </p>
+    </div>
+  </div>
+</header>

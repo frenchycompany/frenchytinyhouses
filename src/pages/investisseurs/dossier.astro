@@ -1,0 +1,61 @@
+---
+import InvestorLayout from '../../layouts/InvestorLayout.astro';
+
+const langs = [
+  { code: 'fr', label: 'Français', native: 'FR' },
+  { code: 'en', label: 'English', native: 'EN' },
+  { code: 'ru', label: 'Русский', native: 'RU' },
+  { code: 'zh', label: '中文', native: 'ZH' },
+];
+
+const url = new URL(Astro.request.url);
+const lang = url.searchParams.get('lang') ?? 'fr';
+const valid = langs.find((l) => l.code === lang)?.code ?? 'fr';
+---
+<InvestorLayout
+  title="Dossier de levée — Frenchy Tiny Houses"
+  description="Dossier complet, FR/EN/RU/ZH. Confidentiel."
+  num="— 03 / 03"
+>
+  <section class="mx-auto max-w-page px-6 pt-10 pb-6">
+    <h1 class="font-serif text-4xl md:text-5xl text-dark leading-tight">Dossier de levée</h1>
+    <p class="mt-4 text-[16px] text-ink/80">
+      Document complet, lisible en ligne ou téléchargeable. Quatre langues disponibles.
+    </p>
+
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      {langs.map((l) => (
+        <a
+          href={`/investisseurs/dossier/?lang=${l.code}`}
+          class:list={[
+            'font-mono text-xs uppercase tracking-widest px-4 py-2 border transition',
+            valid === l.code
+              ? 'bg-gold text-paper border-gold'
+              : 'border-gold/40 text-ink hover:border-gold',
+          ]}
+        >
+          {l.native} · {l.label}
+        </a>
+      ))}
+      <a
+        href={`/dossier/${valid}.html`}
+        target="_blank"
+        rel="noopener"
+        class="ml-auto font-mono text-xs uppercase tracking-widest text-gold hover:text-dark"
+      >
+        Ouvrir en plein écran ↗
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-page px-6 pb-24">
+    <div class="border border-gold/30 bg-paper">
+      <iframe
+        src={`/dossier/${valid}.html`}
+        title={`Dossier de levée — ${valid.toUpperCase()}`}
+        class="w-full h-[80vh] block"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </section>
+</InvestorLayout>

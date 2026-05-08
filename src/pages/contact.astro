@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const tallyId = import.meta.env.PUBLIC_TALLY_CONTACT_ID;
+---
+<BaseLayout
+  title="Contact — Étude gratuite — Frenchy Tiny Houses"
+  description="Décrivez votre terrain, recevez sous 48 h une étude personnalisée et conservatrice. Sans engagement."
+>
+  <section class="mx-auto max-w-page px-6 pt-20 pb-10">
+    <p class="section-num">— 06 / 06</p>
+    <h1 class="mt-6 font-serif text-5xl md:text-6xl text-dark leading-[0.95]">
+      Étude gratuite
+    </h1>
+    <p class="mt-8 max-w-prose text-xl leading-relaxed text-ink/80">
+      Quelques questions sur votre terrain, un retour sous 48&nbsp;h. Pas
+      d'engagement, pas d'appel commercial agressif. Une estimation honnête.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-page px-6 pb-24">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <p class="label-mono">Ce qu'il nous faut</p>
+        <ul class="mt-4 space-y-3 text-[16px] text-ink/85">
+          <li class="flex gap-3"><span class="text-gold">—</span> Localisation (commune, code postal)</li>
+          <li class="flex gap-3"><span class="text-gold">—</span> Surface disponible (m²)</li>
+          <li class="flex gap-3"><span class="text-gold">—</span> Accessibilité véhicule</li>
+          <li class="flex gap-3"><span class="text-gold">—</span> Formule envisagée</li>
+        </ul>
+
+        <p class="label-mono mt-12">Ce que vous recevez sous 48 h</p>
+        <ul class="mt-4 space-y-3 text-[16px] text-ink/85">
+          <li class="flex gap-3"><span class="text-gold">—</span> Validation de faisabilité (urbanisme, accès)</li>
+          <li class="flex gap-3"><span class="text-gold">—</span> Estimation de revenu locatif (basse / médiane)</li>
+          <li class="flex gap-3"><span class="text-gold">—</span> Proposition d'emplacement</li>
+          <li class="flex gap-3"><span class="text-gold">—</span> Devis chiffré selon la formule retenue</li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-7">
+        <div class="card-gold">
+          {tallyId ? (
+            <iframe
+              src={`https://tally.so/embed/${tallyId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              width="100%"
+              height="640"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Formulaire d'étude"
+              loading="lazy"
+            ></iframe>
+          ) : (
+            <div class="space-y-4 text-center py-12">
+              <p class="label-mono text-gold">Formulaire en cours d'intégration</p>
+              <p class="text-[15px] text-ink/80">
+                Pour l'instant, contactez-nous directement par email :<br />
+                <a href="mailto:contact@frenchytinyhouses.fr" class="text-gold hover:underline">
+                  contact@frenchytinyhouses.fr
+                </a>
+              </p>
+              <p class="text-xs italic text-ink/60 mt-6">
+                Le formulaire qualifiant Tally sera activé en pré-production
+                (variable PUBLIC_TALLY_CONTACT_ID dans l'environnement).
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

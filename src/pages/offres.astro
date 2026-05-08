@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Les offres — Frenchy Tiny Houses"
+  description="Trois manières d'entrer dans Frenchy Tiny Houses : vente sèche, vente avec gestion intégrale, ou location de terrain."
+>
+  <section class="mx-auto max-w-page px-6 pt-20 pb-10">
+    <p class="section-num">— 04 / 06</p>
+    <h1 class="mt-6 font-serif text-5xl md:text-6xl text-dark leading-[0.95]">
+      Les offres
+    </h1>
+    <p class="mt-8 max-w-prose text-xl leading-relaxed text-ink/80">
+      Trois formules, selon votre rapport au capital et à l'engagement. Une seule
+      Tiny House à chaque fois — le produit ne change pas.
+    </p>
+  </section>
+
+  <!-- 01 VENTE -->
+  <section id="vente" class="border-t border-gold/40 mt-8">
+    <div class="mx-auto max-w-page px-6 py-20 grid gap-12 md:grid-cols-12 items-start">
+      <div class="md:col-span-4">
+        <p class="section-num">— 01</p>
+        <h2 class="mt-3 font-serif text-4xl text-dark leading-tight">Vente sèche</h2>
+        <p class="mt-6 font-mono text-xs uppercase tracking-widest text-gold">Pour</p>
+        <p class="mt-2 text-[15px] text-ink/80">
+          Les propriétaires qui veulent gérer eux-mêmes ou occuper la Tiny House.
+        </p>
+      </div>
+      <div class="md:col-span-8">
+        <div class="card-gold">
+          <p class="label-mono">Prix</p>
+          <p class="mt-2 font-serif text-5xl text-dark">29 999 €</p>
+          <p class="mt-1 text-xs italic text-ink/60">Livrée, posée, équipée.</p>
+
+          <ul class="mt-8 space-y-3 text-[15px] text-ink/85">
+            <li class="flex gap-3"><span class="text-gold">—</span> Tiny House Everbox 18&nbsp;m² complète</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Pose sur dalle isolée, raccordements inclus</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Équipement connecté complet (chauffage, robot, serrure, box 5G, etc.)</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Garantie 10&nbsp;ans sur le bâti</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Aucune commission, aucun engagement de gestion</li>
+          </ul>
+
+          <div class="mt-8">
+            <a href="/contact/?offre=vente" class="btn-gold">Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 GESTION -->
+  <section id="gestion" class="border-t border-gold/40 bg-paper/60">
+    <div class="mx-auto max-w-page px-6 py-20 grid gap-12 md:grid-cols-12 items-start">
+      <div class="md:col-span-4">
+        <p class="section-num">— 02 / Recommandé</p>
+        <h2 class="mt-3 font-serif text-4xl text-dark leading-tight">Vente + gestion intégrale</h2>
+        <p class="mt-6 font-mono text-xs uppercase tracking-widest text-gold">Pour</p>
+        <p class="mt-2 text-[15px] text-ink/80">
+          Les propriétaires qui veulent un revenu locatif passif, sans intervention.
+        </p>
+      </div>
+      <div class="md:col-span-8">
+        <div class="border-2 border-gold bg-paper p-8">
+          <p class="label-mono">Prix</p>
+          <p class="mt-2 font-serif text-5xl text-dark">29 999 €</p>
+          <p class="mt-1 text-xs italic text-ink/60">Achat unique. Commission 20 % sur le brut locatif ensuite.</p>
+
+          <ul class="mt-8 space-y-3 text-[15px] text-ink/85">
+            <li class="flex gap-3"><span class="text-gold">—</span> Tout l'équipement de la formule vente sèche</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Gestion intégrale par Frenchy Conciergerie</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Annonces, pricing, communication voyageurs</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Ménage entre séjours, maintenance préventive et curative</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Reporting mensuel détaillé, virement automatique</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Estimation indicative : ~780 €/mois net (estimation basse)</li>
+          </ul>
+
+          <div class="mt-8">
+            <a href="/contact/?offre=gestion" class="btn-gold">Demander mon étude</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TERRAIN -->
+  <section id="terrain" class="border-t border-gold/40">
+    <div class="mx-auto max-w-page px-6 py-20 grid gap-12 md:grid-cols-12 items-start">
+      <div class="md:col-span-4">
+        <p class="section-num">— 03</p>
+        <h2 class="mt-3 font-serif text-4xl text-dark leading-tight">Location de terrain</h2>
+        <p class="mt-6 font-mono text-xs uppercase tracking-widest text-gold">Pour</p>
+        <p class="mt-2 text-[15px] text-ink/80">
+          Les propriétaires qui ont le terrain mais pas l'envie d'investir.
+        </p>
+      </div>
+      <div class="md:col-span-8">
+        <div class="card-gold">
+          <p class="label-mono">Modèle</p>
+          <p class="mt-2 font-serif text-5xl text-dark">0 €</p>
+          <p class="mt-1 text-xs italic text-ink/60">Investissement initial nul. Loyer mensuel garanti à vous reverser.</p>
+
+          <ul class="mt-8 space-y-3 text-[15px] text-ink/85">
+            <li class="flex gap-3"><span class="text-gold">—</span> Vous mettez votre terrain à disposition (~30 m² + accès)</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Frenchy Tiny Houses installe et exploite la Tiny House</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Vous percevez un loyer mensuel garanti</li>
+            <li class="flex gap-3"><span class="text-gold">—</span> Engagement pluriannuel, conditions définies au cas par cas</li>
+          </ul>
+
+          <div class="mt-8">
+            <a href="/contact/?offre=terrain" class="btn-gold">Discuter de mon terrain</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

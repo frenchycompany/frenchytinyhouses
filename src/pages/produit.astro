@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bati = [
+  { label: 'Surface', value: '18 m² (601 × 308 cm)' },
+  { label: 'Modèle', value: 'Everbox' },
+  { label: 'Bardage', value: 'Panneaux PVC 38 mm' },
+  { label: 'Isolation', value: 'Thermique haute performance' },
+  { label: 'Garantie', value: '10 ans sur le bâti' },
+  { label: 'Pose', value: 'Sur dalle isolée, ~1 mois' },
+];
+
+const eco = [
+  { label: 'Énergie', value: '4 panneaux solaires' },
+  { label: 'Eau', value: 'Récupération d\'eau de pluie' },
+  { label: 'Budget énergie', value: '0 – 20 €/mois (estimation)' },
+];
+
+const connected = [
+  {
+    title: 'Chauffage Wi-Fi 2000 W',
+    why: 'Pilotable par la conciergerie. Aucun oubli, conso optimisée entre voyageurs.',
+  },
+  {
+    title: 'Robot aspirateur-laveur connecté',
+    why: 'Ménage entre voyageurs sans intervention humaine sur place.',
+  },
+  {
+    title: 'Serrure / boîte à clé connectée',
+    why: 'Check-in 24/7 autonome. Pas de remise de clé.',
+  },
+  {
+    title: 'Box 5G + abonnement inclus 1ère année',
+    why: 'Wi-Fi opérationnel partout en France. Pas de fibre à tirer.',
+  },
+  {
+    title: 'Éclairage connecté',
+    why: 'Scénarios on/off centralisés. Économies sur la consommation.',
+  },
+  {
+    title: 'TV connectée',
+    why: 'Standard locatif court-terme attendu par les voyageurs.',
+  },
+  {
+    title: 'Déshumidificateur connecté',
+    why: 'Défaut récurrent constaté sur les modules très isolés (buée). Résolu en série.',
+  },
+  {
+    title: 'Chauffe-eau connecté',
+    why: 'Pilotable à distance, mêmes bénéfices opérationnels que le chauffage.',
+  },
+];
+---
+<BaseLayout
+  title="Le produit — Tiny House 18 m² — Frenchy Tiny Houses"
+  description="Tiny House Everbox 18 m², garantie 10 ans, équipée et entièrement pilotable à distance. Vendue sans option, sans upsell."
+>
+  <section class="mx-auto max-w-page px-6 pt-20 pb-10">
+    <p class="section-num">— 03 / 06</p>
+    <h1 class="mt-6 font-serif text-5xl md:text-6xl text-dark leading-[0.95]">
+      Le produit
+    </h1>
+    <p class="mt-8 max-w-prose text-xl leading-relaxed text-ink/80">
+      Une Tiny House. Pas trois modèles, pas d'options à cocher. Un produit unique,
+      complet, pensé pour la location courte-durée et le pilotage à distance.
+    </p>
+  </section>
+
+  <!-- LE BÂTI -->
+  <section class="mx-auto max-w-page px-6 py-12">
+    <div class="grid gap-12 md:grid-cols-2 items-start">
+      <div>
+        <p class="label-mono">Le bâti</p>
+        <h2 class="mt-4 font-serif text-3xl text-dark">
+          18&nbsp;m², modèle Everbox.
+        </h2>
+        <p class="mt-6 text-[16px] leading-relaxed text-ink/80">
+          Structure compacte, bardage PVC 38 mm, isolation renforcée, garantie
+          10&nbsp;ans. Posée sur une dalle isolée préparée par nos soins, livrée
+          et installée en environ un mois.
+        </p>
+
+        <dl class="mt-8 border-t border-gold/40">
+          {bati.map((row) => (
+            <div class="grid grid-cols-3 border-b border-line py-3 gap-4">
+              <dt class="label-mono">{row.label}</dt>
+              <dd class="col-span-2 text-[15px] text-ink/90">{row.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="border border-gold/30 bg-paper p-6">
+        <p class="label-mono">Aperçu</p>
+        <img
+          src="/frenchy-cover.jpg"
+          alt="Tiny House Everbox 18 m²"
+          class="mt-4 w-full h-auto"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉQUIPEMENT ÉCO -->
+  <section class="bg-paper/60 border-y border-line">
+    <div class="mx-auto max-w-page px-6 py-20">
+      <p class="section-num">— Autonomie &amp; énergie</p>
+      <h2 class="mt-4 font-serif text-4xl text-dark">
+        Pensée pour rester low-cost en énergie.
+      </h2>
+      <p class="mt-6 max-w-prose text-[16px] leading-relaxed text-ink/80">
+        L'isolation renforcée fait la moitié du travail. Les panneaux solaires
+        prennent le relais sur la consommation des appareils Wi-Fi. La récupération
+        d'eau de pluie alimente une partie des usages.
+      </p>
+
+      <dl class="mt-10 grid gap-6 md:grid-cols-3">
+        {eco.map((row) => (
+          <div class="border-t border-gold/40 pt-5">
+            <dt class="label-mono">{row.label}</dt>
+            <dd class="mt-2 font-serif text-2xl text-dark">{row.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mt-6 text-xs italic text-ink/60">
+        Estimation indicative selon saison et usage. Sans garantie chiffrée.
+      </p>
+    </div>
+  </section>
+
+  <!-- ÉQUIPEMENT CONNECTÉ -->
+  <section class="mx-auto max-w-page px-6 py-20">
+    <p class="section-num">— Pilotage à distance</p>
+    <h2 class="mt-4 font-serif text-4xl text-dark max-w-3xl">
+      Tout ce qui peut être télégéré l'est.
+    </h2>
+    <p class="mt-6 max-w-prose text-[16px] leading-relaxed text-ink/80">
+      Pas par confort technologique — pour que la conciergerie gère cent unités
+      sans recruter cent personnes. Chaque équipement est choisi pour son
+      bénéfice opérationnel, pas pour son label "smart".
+    </p>
+
+    <div class="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2">
+      {connected.map((item) => (
+        <div class="border-t border-gold/30 pt-5">
+          <h3 class="font-serif text-xl text-dark">{item.title}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-ink/80">{item.why}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-paper/60 border-t border-line">
+    <div class="mx-auto max-w-page px-6 py-20 text-center">
+      <h2 class="font-serif text-3xl md:text-4xl text-dark max-w-2xl mx-auto">
+        Une seule Tiny House. Tout est inclus.
+      </h2>
+      <p class="mt-4 max-w-prose mx-auto text-[16px] text-ink/80">
+        Prix de vente affiché : <strong class="text-dark">29 999 €</strong> tout équipement,
+        pose et raccordements compris.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href="/offres/" class="btn-gold">Voir les offres</a>
+        <a href="/simulateur/" class="btn-ghost">Estimer mon revenu</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

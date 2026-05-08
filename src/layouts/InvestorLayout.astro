@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import InvestorHeader from '../components/investor/InvestorHeader.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  num?: string;
+}
+
+const {
+  title,
+  description = 'Frenchy Tiny Houses — espace investisseurs. Confidentiel.',
+  num,
+} = Astro.props;
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap"
+    />
+  </head>
+  <body class="min-h-screen bg-soft text-ink">
+    <InvestorHeader />
+    <main>
+      {num && (
+        <div class="mx-auto max-w-page px-6 pt-10">
+          <p class="section-num">{num}</p>
+        </div>
+      )}
+      <slot />
+    </main>
+    <footer class="border-t border-line bg-paper/60 mt-24">
+      <div class="mx-auto max-w-page px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-3">
+        <p class="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+          Confidentiel — Frenchy Tiny Houses SAS — Document de travail
+        </p>
+        <p class="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+          <a href="/" class="hover:text-gold">← Retour site public</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
