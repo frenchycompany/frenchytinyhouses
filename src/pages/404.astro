@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Page introuvable — Frenchy Tiny Houses"
+  description="La page demandée n'existe pas."
+  noindex={true}
+>
+  <section class="mx-auto max-w-page px-6 py-32 text-center">
+    <p class="section-num">— 404</p>
+    <h1 class="mt-6 font-serif text-7xl md:text-8xl text-dark leading-none">
+      Cette page n'existe pas.
+    </h1>
+    <p class="mt-8 max-w-prose mx-auto text-xl leading-relaxed text-ink/80">
+      Lien cassé, URL retapée à la main, ou page que nous avons archivée :
+      pas de panique.
+    </p>
+    <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
+      <a href="/" class="btn-gold">Retour à l'accueil</a>
+      <a href="/contact/" class="btn-ghost">Nous contacter</a>
+    </div>
+  </section>
+</BaseLayout>

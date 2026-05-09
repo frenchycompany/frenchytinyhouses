@@ -1,0 +1,42 @@
+{
+  "_note": "Source unique des informations légales du site. Modifier ici → mentions-legales et confidentialite sont mises à jour. Tous les champs marqués TODO doivent être complétés avant que le site ne soit considéré conforme LCEN/RGPD.",
+
+  "publisher": {
+    "company": "Frenchy Company",
+    "legalForm": "SAS",
+    "siren": "TODO_SIREN_9_chiffres",
+    "siret": "TODO_SIRET_14_chiffres",
+    "rcs": "TODO_RCS_Compiègne",
+    "vat": "TODO_FR_TVA",
+    "shareCapital": "TODO_capital_social_en_euros",
+    "address": "TODO_rue_et_numero",
+    "postalCode": "60200",
+    "city": "Compiègne",
+    "country": "France",
+    "director": "Raphaël Jacquet",
+    "directorTitle": "Président",
+    "email": "contact@frenchytinyhouses.fr",
+    "phone": "TODO_+33_X_XX_XX_XX_XX"
+  },
+
+  "publicationDirector": {
+    "name": "Raphaël Jacquet",
+    "email": "contact@frenchytinyhouses.fr"
+  },
+
+  "host": {
+    "company": "IONOS SARL",
+    "address": "7 place de la Gare, 57200 Sarreguemines, France",
+    "phone": "+33 970 808 911",
+    "website": "https://www.ionos.fr"
+  },
+
+  "dpo": {
+    "exists": false,
+    "_comment": "Mettre exists: true et compléter le contact si un DPO est désigné. Sinon les questions RGPD vont à l'email du publisher.",
+    "name": null,
+    "email": null
+  },
+
+  "lastUpdated": "2026-05-08"
+}

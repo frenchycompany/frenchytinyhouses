@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import legal from '../data/legal.json';
+
+const p = legal.publisher;
+const dpoContact = legal.dpo.exists
+  ? `${legal.dpo.name} — ${legal.dpo.email}`
+  : `${p.email}`;
+---
+<BaseLayout
+  title="Politique de confidentialité — Frenchy Tiny Houses"
+  description="Comment nous traitons vos données personnelles, conformément au RGPD."
+  noindex={true}
+>
+  <section class="mx-auto max-w-page px-6 pt-20 pb-24">
+    <p class="section-num">— Légal</p>
+    <h1 class="mt-6 font-serif text-5xl text-dark leading-tight">Politique de confidentialité</h1>
+    <p class="mt-6 max-w-prose text-[15px] text-ink/70 italic">
+      Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi Informatique et
+      Libertés modifiée. Dernière mise à jour : {legal.lastUpdated}.
+    </p>
+
+    <div class="mt-12 space-y-10 max-w-prose">
+
+      <article>
+        <h2 class="font-serif text-2xl text-dark">Responsable du traitement</h2>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          <strong>{p.company}</strong> ({p.legalForm}), immatriculée sous le SIREN {p.siren},
+          dont le siège social est situé {p.address}, {p.postalCode} {p.city}.<br />
+          Contact : <a href={`mailto:${p.email}`} class="text-gold hover:underline">{p.email}</a>
+        </p>
+      </article>
+
+      <article>
+        <h2 class="font-serif text-2xl text-dark">Données collectées</h2>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          Nous collectons uniquement les données que vous nous transmettez
+          volontairement via le formulaire de contact :
+        </p>
+        <ul class="mt-3 space-y-2 text-[15px] list-disc pl-6">
+          <li>Identité (nom, prénom)</li>
+          <li>Coordonnées (email, téléphone)</li>
+          <li>Informations relatives à votre terrain (commune, code postal, surface, accessibilité)</li>
+          <li>Formule envisagée et message libre</li>
+        </ul>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          Aucune donnée sensible n'est collectée. Nous n'utilisons pas de cookies
+          publicitaires ni de traceurs tiers. Notre outil de mesure d'audience
+          (Umami, auto-hébergé) est anonyme et ne nécessite pas de consentement.
+        </p>
+      </article>
+
+      <article>
+        <h2 class="font-serif text-2xl text-dark">Finalités</h2>
+        <ul class="mt-3 space-y-2 text-[15px] list-disc pl-6">
+          <li>Répondre à votre demande d'étude personnalisée</li>
+          <li>Vous proposer un devis et planifier une éventuelle pose</li>
+          <li>Vous tenir informé du suivi de votre projet</li>
+          <li>Statistiques agrégées et anonymes de fréquentation du site</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2 class="font-serif text-2xl text-dark">Base légale</h2>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          Le traitement de vos données est fondé sur votre consentement
+          (article 6.1.a du RGPD), recueilli explicitement lors de l'envoi du
+          formulaire, et sur l'exécution de mesures précontractuelles prises à
+          votre demande (article 6.1.b).
+        </p>
+      </article>
+
+      <article>
+        <h2 class="font-serif text-2xl text-dark">Durée de conservation</h2>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          Les données issues du formulaire de contact sont conservées trois (3)
+          ans à compter du dernier contact actif si la relation ne se concrétise
+          pas, ou pendant toute la durée de la relation contractuelle puis dix
+          (10) ans à des fins comptables et fiscales si elle se concrétise.
+        </p>
+      </article>
+
+      <article>
+        <h2 class="font-serif text-2xl text-dark">Destinataires</h2>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          Vos données sont strictement réservées à <strong>{p.company}</strong> et à
+          ses filiales opérationnelles (notamment Frenchy Conciergerie, en charge
+          de la gestion locative). Elles ne sont ni vendues ni cédées à des
+          tiers à des fins commerciales.<br />
+          Sous-traitants techniques : Tally (hébergement du formulaire, UE), IONOS
+          (hébergement du site, France).
+        </p>
+      </article>
+
+      <article>
+        <h2 class="font-serif text-2xl text-dark">Vos droits</h2>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          Vous disposez d'un droit d'accès, de rectification, d'effacement, de
+          limitation, de portabilité et d'opposition au traitement de vos
+          données. Vous pouvez les exercer à tout moment en écrivant à :
+        </p>
+        <p class="mt-3 text-[15px]">
+          <strong>{dpoContact}</strong>
+        </p>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          Vous pouvez également introduire une réclamation auprès de la CNIL
+          (<a href="https://www.cnil.fr" target="_blank" rel="noopener" class="text-gold hover:underline">www.cnil.fr</a>).
+        </p>
+      </article>
+
+      <article>
+        <h2 class="font-serif text-2xl text-dark">Cookies</h2>
+        <p class="mt-3 text-[15px] leading-relaxed">
+          Le site n'utilise que des cookies strictement nécessaires à son
+          fonctionnement (sessions, préférences linguistiques) et un outil de
+          mesure d'audience anonyme (Umami auto-hébergé), exempté de l'obligation
+          de consentement par la CNIL. Aucun cookie tiers à finalité publicitaire
+          n'est déposé.
+        </p>
+      </article>
+
+    </div>
+  </section>
+</BaseLayout>
