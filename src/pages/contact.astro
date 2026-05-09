@@ -42,9 +42,9 @@ const tallyId = import.meta.env.PUBLIC_TALLY_CONTACT_ID;
         <div class="card-gold">
           {tallyId ? (
             <iframe
-              src={`https://tally.so/embed/${tallyId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              data-tally-src={`https://tally.so/embed/${tallyId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
               width="100%"
-              height="640"
+              height="320"
               frameborder="0"
               marginheight="0"
               marginwidth="0"
@@ -70,4 +70,8 @@ const tallyId = import.meta.env.PUBLIC_TALLY_CONTACT_ID;
       </div>
     </div>
   </section>
+
+  {tallyId && (
+    <script is:inline src="https://tally.so/widgets/embed.js" async></script>
+  )}
 </BaseLayout>

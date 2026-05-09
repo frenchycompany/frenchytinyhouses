@@ -9,7 +9,10 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
     react(),
     sitemap({
-      filter: (page) => !page.includes('/investisseurs') && !page.includes('/gestion'),
+      filter: (page) =>
+        !page.includes('/investisseurs') &&
+        !page.includes('/gestion') &&
+        !page.includes('/merci'),
     }),
   ],
   build: {

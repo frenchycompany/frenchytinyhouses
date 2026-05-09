@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Merci — votre demande est bien reçue"
+  description="Votre demande d'étude est enregistrée. Nous revenons vers vous sous 48 heures."
+  noindex={true}
+>
+  <section class="mx-auto max-w-page px-6 pt-24 pb-32 text-center">
+    <p class="section-num">— Confirmation</p>
+    <h1 class="mt-6 font-serif text-5xl md:text-6xl text-dark leading-[0.95]">
+      Bien reçu. Merci.
+    </h1>
+    <p class="mt-8 max-w-prose mx-auto text-xl leading-relaxed text-ink/85">
+      Votre demande d'étude est enregistrée. Vous recevez sous <strong>48 heures
+      ouvrées</strong> un retour personnalisé : faisabilité, estimation
+      conservatrice, et proposition d'emplacement.
+    </p>
+
+    <div class="mt-14 max-w-2xl mx-auto card-gold text-left">
+      <p class="label-mono text-gold">— La suite</p>
+      <ol class="mt-4 space-y-4 text-[15px] text-ink/85">
+        <li class="flex gap-4">
+          <span class="font-mono text-gold shrink-0">01.</span>
+          <span>Nous vérifions la faisabilité (PLU, accès, raccordements).</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-gold shrink-0">02.</span>
+          <span>Vous recevez une estimation chiffrée — basse et médiane — avec la formule la plus pertinente pour votre cas.</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-gold shrink-0">03.</span>
+          <span>Si vous souhaitez aller plus loin, on planifie un appel ou une visite. Sinon, le dossier reste à votre disposition, sans relance.</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="mt-14 flex flex-wrap items-center justify-center gap-4">
+      <a href="/" class="btn-ghost">Retour à l'accueil</a>
+      <a href="/produit/" class="btn-gold">En attendant, voir le produit</a>
+    </div>
+
+    <p class="mt-12 text-xs italic text-ink/60">
+      Une question urgente ?
+      <a href="mailto:contact@frenchytinyhouses.fr" class="text-gold hover:underline">contact@frenchytinyhouses.fr</a>
+    </p>
+  </section>
+</BaseLayout>
