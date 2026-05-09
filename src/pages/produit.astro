@@ -1,170 +1,373 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const bati = [
-  { label: 'Surface', value: '18 m² (601 × 308 cm)' },
-  { label: 'Modèle', value: 'Everbox' },
-  { label: 'Bardage', value: 'Panneaux PVC 38 mm' },
-  { label: 'Isolation', value: 'Thermique haute performance' },
-  { label: 'Garantie', value: '10 ans sur le bâti' },
-  { label: 'Pose', value: 'Sur dalle isolée, ~1 mois' },
+const kpi = [
+  { value: '18', unit: 'm²', label: 'Surface habitable' },
+  { value: '10', unit: 'ans', label: 'Garantie bâti' },
+  { value: '~30', unit: 'jours', label: 'De la pose au 1er voyageur' },
+  { value: '4', unit: 'panneaux', label: 'Solaires en standard' },
 ];
 
-const eco = [
+const bati = [
+  { label: 'Modèle', value: 'Everbox' },
+  { label: 'Dimensions', value: '601 × 308 cm' },
+  { label: 'Surface', value: '18 m² habitable' },
+  { label: 'Bardage', value: 'Panneaux PVC 38 mm' },
+  { label: 'Isolation', value: 'Thermique haute performance' },
+  { label: 'Garantie bâti', value: '10 ans' },
+  { label: 'Pose', value: 'Sur dalle isolée, ~1 mois' },
   { label: 'Énergie', value: '4 panneaux solaires' },
   { label: 'Eau', value: 'Récupération d\'eau de pluie' },
-  { label: 'Budget énergie', value: '0 – 20 €/mois (estimation)' },
+  { label: 'Connectivité', value: 'Box 5G — 1ère année incluse' },
 ];
 
 const connected = [
-  {
-    title: 'Chauffage Wi-Fi 2000 W',
-    why: 'Pilotable par la conciergerie. Aucun oubli, conso optimisée entre voyageurs.',
-  },
-  {
-    title: 'Robot aspirateur-laveur connecté',
-    why: 'Ménage entre voyageurs sans intervention humaine sur place.',
-  },
-  {
-    title: 'Serrure / boîte à clé connectée',
-    why: 'Check-in 24/7 autonome. Pas de remise de clé.',
-  },
-  {
-    title: 'Box 5G + abonnement inclus 1ère année',
-    why: 'Wi-Fi opérationnel partout en France. Pas de fibre à tirer.',
-  },
-  {
-    title: 'Éclairage connecté',
-    why: 'Scénarios on/off centralisés. Économies sur la consommation.',
-  },
-  {
-    title: 'TV connectée',
-    why: 'Standard locatif court-terme attendu par les voyageurs.',
-  },
-  {
-    title: 'Déshumidificateur connecté',
-    why: 'Défaut récurrent constaté sur les modules très isolés (buée). Résolu en série.',
-  },
-  {
-    title: 'Chauffe-eau connecté',
-    why: 'Pilotable à distance, mêmes bénéfices opérationnels que le chauffage.',
-  },
+  { title: 'Chauffage Wi-Fi 2000 W', why: 'Pilotable par la conciergerie. Aucun oubli, conso optimisée entre voyageurs.', icon: 'flame' },
+  { title: 'Robot aspirateur-laveur', why: 'Ménage entre voyageurs sans intervention humaine sur place.', icon: 'sparkle' },
+  { title: 'Serrure connectée', why: 'Check-in 24/7 autonome. Pas de remise de clé, pas de boîte à clé physique.', icon: 'lock' },
+  { title: 'Box 5G + abonnement', why: 'Wi-Fi opérationnel partout en France. Pas de fibre à tirer. 1ère année incluse.', icon: 'signal' },
+  { title: 'Éclairage connecté', why: 'Scénarios on/off centralisés. Économies sur la consommation.', icon: 'bulb' },
+  { title: 'TV connectée', why: 'Standard locatif court-terme attendu par les voyageurs.', icon: 'tv' },
+  { title: 'Déshumidificateur', why: 'Défaut récurrent constaté sur les modules très isolés. Résolu en série.', icon: 'drop' },
+  { title: 'Chauffe-eau connecté', why: 'Pilotable à distance. Mêmes bénéfices opérationnels que le chauffage.', icon: 'tank' },
+];
+
+const process = [
+  { num: '01', title: 'Étude personnalisée', description: 'Faisabilité urbanisme, accès chantier, devis chiffré. Retour sous 48 h.' },
+  { num: '02', title: 'Réservation', description: 'Place bloquée en production. Acompte, formule retenue, planning de pose.' },
+  { num: '03', title: 'Pose & raccordements', description: 'Dalle isolée préparée, module livré et posé, raccordements. Environ un mois sur site.' },
+  { num: '04', title: 'Exploitation', description: 'Mise en ligne sur les plateformes, gestion intégrale Frenchy Conciergerie. Vous encaissez.' },
 ];
 ---
 <BaseLayout
-  title="Le produit — Tiny House 18 m² — Frenchy Tiny Houses"
-  description="Tiny House Everbox 18 m², garantie 10 ans, équipée et entièrement pilotable à distance. Vendue sans option, sans upsell."
+  title="Tiny House 18 m² — 29 999 € — Frenchy Tiny Houses"
+  description="Tiny House Everbox 18 m², garantie 10 ans, équipée et entièrement pilotable à distance. Vendue sans option, sans upsell. 29 999 € pose comprise."
 >
-  <section class="mx-auto max-w-page px-6 pt-20 pb-10">
-    <p class="section-num">— 03 / 06</p>
-    <h1 class="mt-6 font-serif text-5xl md:text-6xl text-dark leading-[0.95]">
-      Le produit
-    </h1>
-    <p class="mt-8 max-w-prose text-xl leading-relaxed text-ink/80">
-      Une Tiny House. Pas trois modèles, pas d'options à cocher. Un produit unique,
-      complet, pensé pour la location courte-durée et le pilotage à distance.
-    </p>
-  </section>
 
-  <!-- LE BÂTI -->
-  <section class="mx-auto max-w-page px-6 py-12">
-    <div class="grid gap-12 md:grid-cols-2 items-start">
-      <div>
-        <p class="label-mono">Le bâti</p>
-        <h2 class="mt-4 font-serif text-3xl text-dark">
-          18&nbsp;m², modèle Everbox.
-        </h2>
-        <p class="mt-6 text-[16px] leading-relaxed text-ink/80">
-          Structure compacte, bardage PVC 38 mm, isolation renforcée, garantie
-          10&nbsp;ans. Posée sur une dalle isolée préparée par nos soins, livrée
-          et installée en environ un mois.
-        </p>
+  <!-- HERO -->
+  <section id="produit-hero" class="border-b border-line">
+    <div class="mx-auto max-w-page px-6 pt-16 md:pt-20 pb-16 md:pb-24">
+      <p class="section-num">— 03 / 06 — Produit</p>
 
-        <dl class="mt-8 border-t border-gold/40">
-          {bati.map((row) => (
-            <div class="grid grid-cols-3 border-b border-line py-3 gap-4">
-              <dt class="label-mono">{row.label}</dt>
-              <dd class="col-span-2 text-[15px] text-ink/90">{row.value}</dd>
+      <div class="mt-10 grid gap-12 md:gap-16 md:grid-cols-12 items-end">
+        <div class="md:col-span-7">
+          <h1 class="font-serif text-[clamp(2.75rem,7vw,5.5rem)] text-dark leading-[0.95]">
+            Une Tiny House.<br />
+            <span class="text-gold">Tout est inclus.</span>
+          </h1>
+          <p class="mt-8 max-w-xl text-xl leading-relaxed text-ink/80">
+            18 m² posés en un mois sur dalle isolée. Garantie 10 ans.
+            Entièrement équipée, entièrement pilotable à distance.
+            Pas trois modèles. Pas d'options à cocher. Pas d'upsell.
+          </p>
+
+          <div class="mt-12 flex flex-wrap items-end gap-x-12 gap-y-6 border-t border-gold/40 pt-8">
+            <div>
+              <p class="label-mono">Prix de vente — pose comprise</p>
+              <p class="mt-2 font-serif text-5xl md:text-6xl text-dark">29 999 <span class="text-3xl text-ink/60">€</span></p>
+              <p class="mt-1 font-mono text-xs uppercase tracking-widest text-ink/55">TTC, livré posé, équipé</p>
             </div>
-          ))}
-        </dl>
-      </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="/contact/?intent=reservation" class="btn-gold">Réserver</a>
+              <a href="#fiche" class="btn-ghost">Fiche technique</a>
+            </div>
+          </div>
+        </div>
 
-      <div class="border border-gold/30 bg-paper p-6">
-        <p class="label-mono">Aperçu</p>
-        <img
-          src="/frenchy-cover.jpg"
-          alt="Tiny House Everbox 18 m²"
-          class="mt-4 w-full h-auto"
-          loading="lazy"
-        />
+        <!-- SCHEMA SVG du module -->
+        <div class="md:col-span-5">
+          <div class="border border-gold/30 bg-paper p-6 md:p-8">
+            <p class="label-mono">Schéma — vue de dessus &amp; profil</p>
+            <svg viewBox="0 0 320 360" class="mt-6 w-full h-auto" aria-hidden="true">
+              <!-- Vue de dessus -->
+              <g stroke="#b8924a" fill="none" stroke-width="1.2">
+                <rect x="20" y="20" width="280" height="143" />
+                <line x1="20" y1="60" x2="300" y2="60" stroke-dasharray="2 3" stroke-width="0.8" stroke="#d8cfbf" />
+                <line x1="220" y1="60" x2="220" y2="163" stroke-dasharray="2 3" stroke-width="0.8" stroke="#d8cfbf" />
+                <!-- porte -->
+                <line x1="170" y1="163" x2="200" y2="163" stroke-width="2.4" />
+                <!-- fenêtres -->
+                <line x1="40" y1="20" x2="80" y2="20" stroke-width="2.4" />
+                <line x1="220" y1="20" x2="280" y2="20" stroke-width="2.4" />
+                <line x1="20" y1="100" x2="20" y2="135" stroke-width="2.4" />
+              </g>
+              <!-- cotes vue dessus -->
+              <g font-family="DM Mono, monospace" font-size="9" fill="#2b2b2b" letter-spacing="1">
+                <text x="160" y="13" text-anchor="middle">601 cm</text>
+                <text x="11" y="95" text-anchor="middle" transform="rotate(-90, 11, 95)">308 cm</text>
+                <text x="160" y="183" text-anchor="middle" fill="#b8924a">VUE DE DESSUS</text>
+              </g>
+
+              <!-- séparateur -->
+              <line x1="40" y1="205" x2="280" y2="205" stroke="#d8cfbf" stroke-width="0.5" />
+
+              <!-- Vue de profil avec toit -->
+              <g stroke="#b8924a" fill="none" stroke-width="1.2">
+                <rect x="40" y="245" width="240" height="80" />
+                <!-- toit panneaux solaires -->
+                <line x1="40" y1="245" x2="280" y2="225" />
+                <line x1="280" y1="245" x2="280" y2="225" />
+                <!-- panneaux solaires (4) -->
+                <line x1="100" y1="240" x2="100" y2="225" stroke="#b8924a" stroke-dasharray="1 2" />
+                <line x1="160" y1="235" x2="160" y2="225" stroke="#b8924a" stroke-dasharray="1 2" />
+                <line x1="220" y1="230" x2="220" y2="225" stroke="#b8924a" stroke-dasharray="1 2" />
+                <!-- porte -->
+                <rect x="180" y="280" width="22" height="45" stroke-width="0.8" />
+                <!-- fenêtres -->
+                <rect x="60" y="265" width="35" height="25" stroke-width="0.8" />
+                <rect x="225" y="265" width="40" height="25" stroke-width="0.8" />
+              </g>
+              <g font-family="DM Mono, monospace" font-size="9" fill="#2b2b2b" letter-spacing="1">
+                <text x="160" y="345" text-anchor="middle" fill="#b8924a">VUE DE PROFIL</text>
+                <text x="160" y="218" text-anchor="middle" fill="#b8924a">4 PANNEAUX SOLAIRES</text>
+              </g>
+            </svg>
+            <p class="mt-4 text-xs italic text-ink/60">
+              Schéma indicatif — implantation porte/fenêtres adaptée à l'orientation du terrain.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ÉQUIPEMENT ÉCO -->
-  <section class="bg-paper/60 border-y border-line">
-    <div class="mx-auto max-w-page px-6 py-20">
-      <p class="section-num">— Autonomie &amp; énergie</p>
-      <h2 class="mt-4 font-serif text-4xl text-dark">
-        Pensée pour rester low-cost en énergie.
-      </h2>
-      <p class="mt-6 max-w-prose text-[16px] leading-relaxed text-ink/80">
-        L'isolation renforcée fait la moitié du travail. Les panneaux solaires
-        prennent le relais sur la consommation des appareils Wi-Fi. La récupération
-        d'eau de pluie alimente une partie des usages.
-      </p>
-
-      <dl class="mt-10 grid gap-6 md:grid-cols-3">
-        {eco.map((row) => (
+  <!-- KPIs -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-page px-6 py-16 md:py-20">
+      <dl class="grid gap-y-10 gap-x-8 sm:grid-cols-2 md:grid-cols-4">
+        {kpi.map((k) => (
           <div class="border-t border-gold/40 pt-5">
-            <dt class="label-mono">{row.label}</dt>
-            <dd class="mt-2 font-serif text-2xl text-dark">{row.value}</dd>
+            <dt class="label-mono">{k.label}</dt>
+            <dd class="mt-3">
+              <span class="font-serif text-5xl md:text-6xl text-dark">{k.value}</span>
+              <span class="ml-1 font-mono text-xs uppercase tracking-widest text-ink/60">{k.unit}</span>
+            </dd>
           </div>
         ))}
       </dl>
-      <p class="mt-6 text-xs italic text-ink/60">
-        Estimation indicative selon saison et usage. Sans garantie chiffrée.
-      </p>
     </div>
   </section>
 
   <!-- ÉQUIPEMENT CONNECTÉ -->
-  <section class="mx-auto max-w-page px-6 py-20">
-    <p class="section-num">— Pilotage à distance</p>
-    <h2 class="mt-4 font-serif text-4xl text-dark max-w-3xl">
-      Tout ce qui peut être télégéré l'est.
-    </h2>
-    <p class="mt-6 max-w-prose text-[16px] leading-relaxed text-ink/80">
-      Pas par confort technologique — pour que la conciergerie gère cent unités
-      sans recruter cent personnes. Chaque équipement est choisi pour son
-      bénéfice opérationnel, pas pour son label "smart".
-    </p>
-
-    <div class="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2">
-      {connected.map((item) => (
-        <div class="border-t border-gold/30 pt-5">
-          <h3 class="font-serif text-xl text-dark">{item.title}</h3>
-          <p class="mt-2 text-[15px] leading-relaxed text-ink/80">{item.why}</p>
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-page px-6 py-20">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <p class="section-num">— Pilotage à distance</p>
+          <h2 class="mt-4 font-serif text-4xl md:text-5xl text-dark leading-tight">
+            Tout ce qui peut être télégéré l'est.
+          </h2>
+          <p class="mt-6 max-w-prose text-[16px] leading-relaxed text-ink/80">
+            Pas par confort technologique. Pour que la conciergerie gère
+            cent unités sans recruter cent personnes. Chaque équipement est
+            choisi pour son bénéfice opérationnel — pas pour son label "smart".
+          </p>
+          <p class="mt-4 max-w-prose text-[16px] leading-relaxed text-ink/80">
+            Tout est inclus dans le prix de vente. Aucune option, aucun upsell.
+          </p>
         </div>
-      ))}
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="bg-paper/60 border-t border-line">
-    <div class="mx-auto max-w-page px-6 py-20 text-center">
-      <h2 class="font-serif text-3xl md:text-4xl text-dark max-w-2xl mx-auto">
-        Une seule Tiny House. Tout est inclus.
-      </h2>
-      <p class="mt-4 max-w-prose mx-auto text-[16px] text-ink/80">
-        Prix de vente affiché : <strong class="text-dark">29 999 €</strong> tout équipement,
-        pose et raccordements compris.
-      </p>
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <a href="/offres/" class="btn-gold">Voir les offres</a>
-        <a href="/simulateur/" class="btn-ghost">Estimer mon revenu</a>
+        <div class="md:col-span-7">
+          <div class="grid gap-x-8 gap-y-10 sm:grid-cols-2">
+            {connected.map((item) => (
+              <div class="border-t border-gold/30 pt-5">
+                <div class="flex items-start gap-4">
+                  <div class="shrink-0 mt-1">
+                    {item.icon === 'flame' && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8924a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 14c0-3 4-4 4-9 3 2 6 6 6 10a6 6 0 1 1-12 0c0-2 1-3 2-4 0 2 1 3 2 3-1-1-1-3 0-4z" />
+                      </svg>
+                    )}
+                    {item.icon === 'sparkle' && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8924a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="7" />
+                        <path d="M12 5v3M12 16v3M5 12h3M16 12h3" />
+                      </svg>
+                    )}
+                    {item.icon === 'lock' && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8924a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="5" y="11" width="14" height="9" rx="1" />
+                        <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                      </svg>
+                    )}
+                    {item.icon === 'signal' && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8924a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 12a13 13 0 0 1 18 0" />
+                        <path d="M6 15a9 9 0 0 1 12 0" />
+                        <path d="M9 18a5 5 0 0 1 6 0" />
+                        <circle cx="12" cy="20.5" r="0.6" fill="#b8924a" />
+                      </svg>
+                    )}
+                    {item.icon === 'bulb' && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8924a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c1 1 1.5 2 1.5 3.5h5c0-1.5.5-2.5 1.5-3.5A6 6 0 0 0 12 3z" />
+                      </svg>
+                    )}
+                    {item.icon === 'tv' && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8924a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="12" rx="1" />
+                        <path d="M8 21h8M12 17v4" />
+                      </svg>
+                    )}
+                    {item.icon === 'drop' && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8924a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3c4 5 6 8.5 6 11.5a6 6 0 1 1-12 0C6 11.5 8 8 12 3z" />
+                      </svg>
+                    )}
+                    {item.icon === 'tank' && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b8924a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="6" y="4" width="12" height="16" rx="1.5" />
+                        <path d="M9 9h6M9 13h6" />
+                      </svg>
+                    )}
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-serif text-lg text-dark leading-snug">{item.title}</h3>
+                    <p class="mt-2 text-[14.5px] leading-relaxed text-ink/75">{item.why}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- AUTONOMIE / ÉNERGIE -->
+  <section class="bg-paper/60 border-b border-line">
+    <div class="mx-auto max-w-page px-6 py-20">
+      <div class="grid gap-10 md:grid-cols-12 items-start">
+        <div class="md:col-span-5">
+          <p class="section-num">— Autonomie &amp; énergie</p>
+          <h2 class="mt-4 font-serif text-4xl text-dark leading-tight">
+            Pensée pour rester low-cost.
+          </h2>
+        </div>
+        <div class="md:col-span-7 max-w-prose">
+          <p class="text-[16px] leading-relaxed text-ink/85">
+            L'isolation renforcée fait la moitié du travail. Les panneaux solaires
+            prennent le relais sur les appareils Wi-Fi. La récupération d'eau
+            de pluie alimente une partie des usages domestiques.
+          </p>
+          <dl class="mt-10 grid gap-6 sm:grid-cols-2">
+            <div class="border-t border-gold/40 pt-4">
+              <dt class="label-mono">Production solaire</dt>
+              <dd class="mt-2 font-serif text-2xl text-dark">4 panneaux en toit</dd>
+            </div>
+            <div class="border-t border-gold/40 pt-4">
+              <dt class="label-mono">Eau</dt>
+              <dd class="mt-2 font-serif text-2xl text-dark">Récup pluie</dd>
+            </div>
+            <div class="border-t border-gold/40 pt-4 sm:col-span-2">
+              <dt class="label-mono">Budget énergie estimé</dt>
+              <dd class="mt-2 font-serif text-2xl text-dark">0 – 20 €/mois</dd>
+              <p class="mt-2 text-xs italic text-ink/60">Estimation indicative selon saison et usage. Sans garantie chiffrée.</p>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSUS -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-page px-6 py-20">
+      <p class="section-num">— De la décision aux premiers loyers</p>
+      <h2 class="mt-4 font-serif text-4xl md:text-5xl text-dark leading-tight max-w-3xl">
+        Quatre étapes. Environ trois mois.
+      </h2>
+
+      <ol class="mt-14 grid gap-10 md:grid-cols-4 md:gap-6">
+        {process.map((step) => (
+          <li class="border-t border-gold/40 pt-5">
+            <p class="font-mono text-xs uppercase tracking-widest text-gold">— {step.num}</p>
+            <h3 class="mt-3 font-serif text-2xl text-dark leading-tight">{step.title}</h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-ink/80">{step.description}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- FICHE TECHNIQUE -->
+  <section id="fiche" class="bg-paper/60 border-b border-line">
+    <div class="mx-auto max-w-page px-6 py-20">
+      <p class="section-num">— Fiche technique</p>
+      <h2 class="mt-4 font-serif text-4xl text-dark leading-tight">
+        Ce qui compose le module.
+      </h2>
+
+      <dl class="mt-12 max-w-3xl border-t border-gold/40">
+        {bati.map((row) => (
+          <div class="grid grid-cols-3 border-b border-line py-4 gap-4">
+            <dt class="label-mono">{row.label}</dt>
+            <dd class="col-span-2 text-[16px] text-ink/90">{row.value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <p class="mt-10 max-w-prose text-xs italic text-ink/60">
+        Le module est livré équipé et raccordé. Aucune option à cocher,
+        aucun upsell : ce que vous voyez ici est strictement ce que vous recevez.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section>
+    <div class="mx-auto max-w-page px-6 py-24 text-center">
+      <p class="section-num">— Réservation</p>
+      <h2 class="mt-4 font-serif text-4xl md:text-5xl text-dark leading-tight max-w-3xl mx-auto">
+        Bloquez votre place dans la file de production.
+      </h2>
+      <p class="mt-6 max-w-prose mx-auto text-[16px] leading-relaxed text-ink/80">
+        Une demande de réservation déclenche l'étude personnalisée de votre
+        terrain. Sous 48 h, nous validons la faisabilité et confirmons le devis.
+        Aucun engagement avant signature du contrat de vente.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="/contact/?intent=reservation" class="btn-gold">Réserver — 29 999 €</a>
+        <a href="/offres/" class="btn-ghost">Voir les formules</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY RESERVATION BAR -->
+  <div
+    id="sticky-reserve"
+    class="fixed inset-x-0 bottom-0 z-40 transform translate-y-full transition-transform duration-300 bg-dark text-paper border-t border-gold/60"
+    aria-hidden="true"
+  >
+    <div class="mx-auto max-w-page px-6 py-3 flex items-center justify-between gap-4">
+      <div class="min-w-0">
+        <p class="font-mono text-[10px] uppercase tracking-widest text-gold-light">Tiny House 18 m² — pose comprise</p>
+        <p class="font-serif text-xl md:text-2xl truncate">29 999 € <span class="text-paper/50 text-sm">TTC</span></p>
+      </div>
+      <a href="/contact/?intent=reservation" class="shrink-0 inline-block bg-gold text-paper font-mono text-xs uppercase tracking-widest px-5 py-3 hover:bg-gold-light transition">Réserver</a>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      const bar = document.getElementById('sticky-reserve');
+      const hero = document.getElementById('produit-hero');
+      if (!bar || !hero || !('IntersectionObserver' in window)) return;
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              bar.classList.add('translate-y-full');
+              bar.setAttribute('aria-hidden', 'true');
+            } else {
+              bar.classList.remove('translate-y-full');
+              bar.setAttribute('aria-hidden', 'false');
+            }
+          }
+        },
+        { threshold: 0, rootMargin: '-40% 0px 0px 0px' }
+      );
+      io.observe(hero);
+    })();
+  </script>
 </BaseLayout>

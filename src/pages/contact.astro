@@ -16,6 +16,21 @@ const tallyId = import.meta.env.PUBLIC_TALLY_CONTACT_ID;
       Quelques questions sur votre terrain, un retour sous 48&nbsp;h. Pas
       d'engagement, pas d'appel commercial agressif. Une estimation honnête.
     </p>
+
+    <div
+      id="reservation-banner"
+      class="hidden mt-10 max-w-3xl border border-gold/50 bg-paper px-6 py-5"
+      role="status"
+    >
+      <p class="label-mono text-gold">— Demande de réservation</p>
+      <p class="mt-2 text-[15px] leading-relaxed text-ink/85">
+        Vous démarrez une demande de réservation pour la
+        <strong>Tiny House 18 m² — 29 999 €</strong>.
+        Une fois ce formulaire envoyé, nous validons la faisabilité de votre
+        terrain sous 48 h et bloquons votre place dans la file de production.
+        Aucun engagement avant signature du contrat de vente.
+      </p>
+    </div>
   </section>
 
   <section class="mx-auto max-w-page px-6 pb-24">
@@ -74,4 +89,16 @@ const tallyId = import.meta.env.PUBLIC_TALLY_CONTACT_ID;
   {tallyId && (
     <script is:inline src="https://tally.so/widgets/embed.js" async></script>
   )}
+
+  <script is:inline>
+    (function () {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('intent') === 'reservation') {
+          const banner = document.getElementById('reservation-banner');
+          if (banner) banner.classList.remove('hidden');
+        }
+      } catch (_) {}
+    })();
+  </script>
 </BaseLayout>
